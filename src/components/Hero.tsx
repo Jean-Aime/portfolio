@@ -57,7 +57,7 @@ const Hero = () => {
                 variants={itemVariants}
                 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-tight text-white"
               >
-                <span className="block">JEAN AIMÉ</span>
+                <span className="block">Jean Aimé</span>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-blue-500 block">
                   BARIHUJE
                 </span>
