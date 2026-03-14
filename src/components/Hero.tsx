@@ -7,6 +7,41 @@ import { Github, Mail, Linkedin, ArrowRight, Terminal } from 'lucide-react';
 import Scene3D from './Scene3D';
 
 const Hero = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.21, 0.47, 0.32, 0.98],
+      },
+    },
+  };
+
+  const nameVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 1,
+        ease: [0.21, 0.47, 0.32, 0.98],
+      },
+    },
+  };
+
   return (
     <section id="home" className="min-h-screen flex flex-col justify-start pt-8 lg:pt-12 relative overflow-hidden bg-[#020617]">
       <Scene3D />
@@ -16,15 +51,13 @@ const Hero = () => {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-12 items-start">
           <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
             className="lg:col-span-7 space-y-6"
           >
             <motion.div 
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
+              variants={itemVariants}
               className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 backdrop-blur-xl"
             >
               <div className="size-2 rounded-full bg-primary animate-pulse"></div>
@@ -33,20 +66,29 @@ const Hero = () => {
             
             <div className="space-y-4">
               <motion.h1 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
+                variants={nameVariants}
                 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-tight text-white"
               >
-                JEAN AIMÉ <br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-blue-500">
+                <motion.span
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                  className="block"
+                >
+                  JEAN AIMÉ
+                </motion.span>
+                <motion.span 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.5 }}
+                  className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-blue-500 block"
+                >
                   BARIHUJE
-                </span>
+                </motion.span>
               </motion.h1>
+              
               <motion.p 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
+                variants={itemVariants}
                 className="max-w-lg text-base sm:text-lg text-slate-400 font-light leading-relaxed border-l-2 border-primary/20 pl-6"
               >
                 Leading digital transformation and innovation. Specializing in <span className="text-white font-semibold">Full-Stack Engineering</span>, <span className="text-white font-semibold">Cybersecurity</span>, and <span className="text-white font-semibold">Enterprise Architecture</span>.
@@ -54,9 +96,7 @@ const Hero = () => {
             </div>
             
             <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
+              variants={itemVariants}
               className="flex flex-wrap items-center gap-6"
             >
               <Button asChild size="lg" className="h-12 px-8 text-sm font-bold bg-primary hover:bg-primary/90 text-white rounded-xl shadow-xl shadow-primary/20 transition-all hover:scale-105 active:scale-95">
