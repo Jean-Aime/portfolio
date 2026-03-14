@@ -5,9 +5,11 @@ import Navigation from '../components/Navigation';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import Experience from '../components/Experience';
+import Education from '../components/Education';
 import Skills from '../components/Skills';
 import Projects from '../components/Projects';
 import Contact from '../components/Contact';
+import ScrollToTop from '../components/ScrollToTop';
 
 const Index = () => {
   return (
@@ -17,6 +19,7 @@ const Index = () => {
         <Hero />
         <About />
         <Experience />
+        <Education />
         <Skills />
         <Projects />
         <Contact />
@@ -24,6 +27,7 @@ const Index = () => {
       <footer className="py-8 border-t border-border text-center text-muted-foreground text-sm">
         © {new Date().getFullYear()} Jean Aimé BARIHUJE. All rights reserved.
       </footer>
+      <ScrollToTop />
     </div>
   );
 };
