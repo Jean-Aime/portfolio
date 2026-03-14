@@ -3,23 +3,24 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
+const FULL_TEXT = [
+  "> Initializing secure connection...",
+  "> Accessing BARIHUJE_CORE_V5.sys",
+  "> Identity: Cybersecurity Architect",
+  "> Specialization: Zero-Trust Systems",
+  "> Status: Ready for deployment",
+  "> Location: Kigali, Rwanda",
+  "> [SUCCESS] System fully operational."
+];
+
 const Terminal = () => {
   const [lines, setLines] = useState<string[]>([]);
-  const fullText = [
-    "> Initializing secure connection...",
-    "> Accessing BARIHUJE_CORE_V5.sys",
-    "> Identity: Cybersecurity Architect",
-    "> Specialization: Zero-Trust Systems",
-    "> Status: Ready for deployment",
-    "> Location: Kigali, Rwanda",
-    "> [SUCCESS] System fully operational."
-  ];
 
   useEffect(() => {
     let currentLine = 0;
     const interval = setInterval(() => {
-      if (currentLine < fullText.length) {
-        setLines(prev => [...prev, fullText[currentLine]]);
+      if (currentLine < FULL_TEXT.length) {
+        setLines(prev => [...prev, FULL_TEXT[currentLine]]);
         currentLine++;
       } else {
         clearInterval(interval);
@@ -42,7 +43,7 @@ const Terminal = () => {
             key={i}
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
-            className={line.includes('[SUCCESS]') ? "text-green-400" : "text-primary/80"}
+            className={line && line.includes('[SUCCESS]') ? "text-green-400" : "text-primary/80"}
           >
             {line}
           </motion.div>
