@@ -23,9 +23,9 @@ export const useGithubProjects = (username: string) => {
       try {
         const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`);
         if (!response.ok) throw new Error('Failed to fetch repositories');
-        const data = await response.data || await response.json();
         
-        // Filter out forks and repos without descriptions if desired, or just take the top ones
+        const data = await response.json();
+        
         const filteredData = data
           .filter((repo: any) => !repo.fork)
           .map((repo: any) => ({

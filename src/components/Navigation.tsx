@@ -58,7 +58,7 @@ const Navigation = () => {
               asChild
               className="hidden sm:flex gap-2 bg-primary hover:bg-primary/90 text-primary-foreground shadow-[0_0_15px_rgba(19,182,236,0.3)]"
             >
-              <a href="/BARIHUJE Jean Aimé Resume.pdf" target="_blank" rel="noopener noreferrer">
+              <a href="/Barihuje_Resume.pdf" target="_blank" rel="noopener noreferrer">
                 Resume
                 <ExternalLink size={16} />
               </a>
