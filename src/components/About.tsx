@@ -2,11 +2,12 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Terminal, Cpu, Globe, Zap, Lock } from 'lucide-react';
+import { Shield, Terminal as TerminalIcon, Cpu, Lock, Zap } from 'lucide-react';
+import Terminal from './Terminal';
 
 const About = () => {
   const stats = [
-    { label: "Experience", value: "5+ Years", icon: <Terminal size={20} /> },
+    { label: "Experience", value: "5+ Years", icon: <TerminalIcon size={20} /> },
     { label: "Projects", value: "20+", icon: <Cpu size={20} /> },
     { label: "Security", value: "Expert", icon: <Shield size={20} /> },
   ];
@@ -43,24 +44,28 @@ const About = () => {
             </div>
           </motion.div>
 
-          <div className="grid grid-cols-2 gap-4">
-            <motion.div 
-              whileHover={{ y: -10 }}
-              className="p-8 rounded-3xl bg-gradient-to-br from-primary/20 to-transparent border border-primary/20 mt-12"
-            >
-              <Lock className="text-primary mb-4" size={40} />
-              <h4 className="text-xl font-bold text-white mb-2">Cybersecurity</h4>
-              <p className="text-sm text-slate-400">Hardening infrastructures and implementing zero-trust architectures for mission-critical data.</p>
-            </motion.div>
-            <motion.div 
-              whileHover={{ y: -10 }}
-              className="p-8 rounded-3xl bg-white/5 border border-white/10"
-            >
-              <Zap className="text-primary mb-4" size={40} />
-              <h4 className="text-xl font-bold text-white mb-2">Full-Stack</h4>
-              <p className="text-sm text-slate-400">Creating scalable, secure, and user-centric web applications using modern tech stacks.</p>
-            </motion.div>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="relative"
+          >
+            <div className="absolute -inset-4 bg-primary/10 blur-3xl rounded-full opacity-50"></div>
+            <Terminal />
+            
+            <div className="mt-8 grid grid-cols-2 gap-4">
+              <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/30 transition-all">
+                <Lock className="text-primary mb-4" size={32} />
+                <h4 className="text-lg font-bold text-white mb-2">Cybersecurity</h4>
+                <p className="text-xs text-slate-400">Hardening infrastructures and implementing zero-trust architectures.</p>
+              </div>
+              <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/30 transition-all">
+                <Zap className="text-primary mb-4" size={32} />
+                <h4 className="text-lg font-bold text-white mb-2">Full-Stack</h4>
+                <p className="text-xs text-slate-400">Creating scalable, secure, and user-centric web applications.</p>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
