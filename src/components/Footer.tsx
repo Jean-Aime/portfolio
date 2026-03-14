@@ -82,9 +82,14 @@ const Footer = () => {
         </div>
 
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-slate-500 text-[10px] font-mono uppercase tracking-widest">
-            &copy; {currentYear} JEAN AIMÉ BARIHUJE. ALL RIGHTS RESERVED.
-          </p>
+          <div className="flex flex-col gap-1">
+            <p className="text-slate-500 text-[10px] font-mono uppercase tracking-widest">
+              &copy; {currentYear} JEAN AIMÉ BARIHUJE. ALL RIGHTS RESERVED.
+            </p>
+            <p className="text-slate-600 text-[8px] font-mono uppercase tracking-widest">
+              v1.0.1-stable
+            </p>
+          </div>
           <p className="text-slate-500 text-[10px] font-mono uppercase tracking-widest">
             DESIGNED & DEVELOPED WITH PRECISION
           </p>
