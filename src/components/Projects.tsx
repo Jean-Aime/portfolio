@@ -2,79 +2,101 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, Code } from 'lucide-react';
+import { ExternalLink, Github, Code, Star, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
-const projects = [
-  {
-    title: "Secure E-Commerce Platform",
-    description: "A full-stack e-commerce solution with integrated payment gateways and robust security protocols.",
-    tech: ["React", "Node.js", "PostgreSQL", "JWT"],
-    github: "#",
-    demo: "#"
-  },
-  {
-    title: "Network Monitoring Tool",
-    description: "Real-time dashboard for monitoring network traffic and detecting potential security threats.",
-    tech: ["Python", "React", "Socket.io", "Linux"],
-    github: "#",
-    demo: "#"
-  },
-  {
-    title: "Portfolio Website",
-    description: "A modern, responsive portfolio built with React and Tailwind CSS to showcase professional work.",
-    tech: ["React", "Tailwind", "Framer Motion"],
-    github: "#",
-    demo: "#"
-  }
-];
+import { useGithubProjects } from '@/hooks/useGithubProjects';
 
 const Projects = () => {
+  const { projects, loading, error } = useGithubProjects('Jean-Aime');
+
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="py-24 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Featured Projects</h2>
-          <div className="h-1 w-20 bg-primary mx-auto rounded-full"></div>
+        <div className="text-center mb-20">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-black mb-4 tracking-tight"
+          >
+            Featured <span className="text-primary">Deployments</span>
+          </motion.h2>
+          <motion.div 
+            initial={{ width: 0 }}
+            whileInView={{ width: 80 }}
+            viewport={{ once: true }}
+            className="h-1.5 bg-primary mx-auto rounded-full"
+          ></motion.div>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="group relative bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/50 transition-all shadow-sm hover:shadow-xl"
-            >
-              <div className="aspect-video bg-accent/50 flex items-center justify-center overflow-hidden">
-                <Code size={48} className="text-primary/20 group-hover:scale-110 transition-transform duration-500" />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tech.map((t, i) => (
-                    <span key={i} className="px-2 py-1 rounded-md bg-accent text-[10px] font-mono font-medium">
-                      {t}
-                    </span>
-                  ))}
+        {loading ? (
+          <div className="flex flex-col items-center justify-center py-20 gap-4">
+            <Loader2 className="animate-spin text-primary" size={40} />
+            <p className="text-muted-foreground font-mono">Fetching source code from GitHub...</p>
+          </div>
+        ) : error ? (
+          <div className="text-center py-20 text-destructive">
+            <p>Error loading projects. Please check back later.</p>
+          </div>
+        ) : (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="group relative bg-card/50 border border-border/50 rounded-2xl overflow-hidden hover:border-primary/40 transition-all duration-500 backdrop-blur-sm flex flex-col"
+              >
+                <div className="aspect-video bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center relative overflow-hidden">
+                  <Code size={48} className="text-primary/20 group-hover:scale-110 group-hover:text-primary/40 transition-all duration-700" />
+                  <div className="absolute top-4 right-4 flex items-center gap-1 px-2 py-1 rounded-md bg-background/80 backdrop-blur-md border border-border text-[10px] font-bold">
+                    <Star size={10} className="text-yellow-500" />
+                    {project.stargazers_count}
+                  </div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <Button variant="outline" size="sm" className="gap-2" asChild>
-                    <a href={project.github}><Github size={14} /> Code</a>
-                  </Button>
-                  <Button size="sm" className="gap-2" asChild>
-                    <a href={project.demo}><ExternalLink size={14} /> Demo</a>
-                  </Button>
+                
+                <div className="p-6 flex flex-col flex-grow">
+                  <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors capitalize">
+                    {project.name}
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-6 line-clamp-3 flex-grow">
+                    {project.description}
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.language && (
+                      <span className="px-2 py-1 rounded-md bg-primary/10 text-primary text-[10px] font-mono font-bold uppercase tracking-wider">
+                        {project.language}
+                      </span>
+                    )}
+                    {project.topics.slice(0, 2).map((topic) => (
+                      <span key={topic} className="px-2 py-1 rounded-md bg-accent text-muted-foreground text-[10px] font-mono">
+                        #{topic}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  <div className="flex items-center gap-3 mt-auto">
+                    <Button variant="outline" size="sm" className="flex-1 gap-2 rounded-xl border-border/50 hover:bg-primary/5" asChild>
+                      <a href={project.html_url} target="_blank" rel="noopener noreferrer">
+                        <Github size={14} /> Source
+                      </a>
+                    </Button>
+                    {project.homepage && (
+                      <Button size="sm" className="flex-1 gap-2 rounded-xl shadow-lg shadow-primary/10" asChild>
+                        <a href={project.homepage} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink size={14} /> Live
+                        </a>
+                      </Button>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+              </motion.div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

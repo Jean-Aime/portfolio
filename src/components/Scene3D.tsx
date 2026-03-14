@@ -1,62 +1,68 @@
 "use client";
 
-import React, { useRef, useState } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Float, MeshDistortMaterial, Sphere, PerspectiveCamera } from '@react-three/drei';
+import React, { useRef, useMemo } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { Float, MeshDistortMaterial, Sphere, PerspectiveCamera, MeshWobbleMaterial, Environment } from '@react-three/drei';
 import * as THREE from 'three';
 
-const InteractiveSphere = () => {
-  const sphereRef = useRef<THREE.Mesh>(null);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+const AbstractCore = () => {
+  const meshRef = useRef<THREE.Mesh>(null);
+  const outerRef = useRef<THREE.Mesh>(null);
 
   useFrame((state) => {
-    const { x, y } = state.mouse;
-    if (sphereRef.current) {
-      // Smoothly follow mouse
-      sphereRef.current.position.x = THREE.MathUtils.lerp(sphereRef.current.position.x, x * 1.5, 0.1);
-      sphereRef.current.position.y = THREE.MathUtils.lerp(sphereRef.current.position.y, y * 1.5, 0.1);
-      
-      // Constant rotation
-      sphereRef.current.rotation.x += 0.005;
-      sphereRef.current.rotation.y += 0.005;
+    const time = state.clock.getElapsedTime();
+    if (meshRef.current) {
+      meshRef.current.rotation.x = time * 0.2;
+      meshRef.current.rotation.y = time * 0.3;
+    }
+    if (outerRef.current) {
+      outerRef.current.rotation.z = -time * 0.1;
+      outerRef.current.rotation.y = -time * 0.15;
     }
   });
 
   return (
-    <Float speed={1.5} rotationIntensity={0.5} floatIntensity={1}>
-      <Sphere ref={sphereRef} args={[1, 100, 100]} scale={1.8}>
-        <MeshDistortMaterial
-          color="#13b6ec"
-          attach="material"
-          distort={0.5}
-          speed={3}
-          roughness={0.1}
-          metalness={0.9}
-          emissive="#0ea5e9"
-          emissiveIntensity={0.2}
-        />
-      </Sphere>
-    </Float>
+    <group>
+      <Float speed={2} rotationIntensity={1} floatIntensity={2}>
+        <Sphere ref={meshRef} args={[1.2, 100, 100]}>
+          <MeshDistortMaterial
+            color="#0ea5e9"
+            attach="material"
+            distort={0.4}
+            speed={4}
+            roughness={0}
+            metalness={1}
+            emissive="#0284c7"
+            emissiveIntensity={0.5}
+          />
+        </Sphere>
+      </Float>
+
+      <mesh ref={outerRef}>
+        <torusKnotGeometry args={[2.5, 0.02, 256, 32]} />
+        <meshStandardMaterial color="#0ea5e9" emissive="#0ea5e9" emissiveIntensity={2} transparent opacity={0.3} />
+      </mesh>
+    </group>
   );
 };
 
-const Particles = () => {
-  const count = 100;
-  const mesh = useRef<THREE.Points>(null);
-  
-  const particlesPosition = React.useMemo(() => {
-    const positions = new Float32Array(count * 3);
+const DataParticles = () => {
+  const count = 200;
+  const points = useMemo(() => {
+    const p = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
-      positions[i * 3] = (Math.random() - 0.5) * 15;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 15;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 15;
+      p[i * 3] = (Math.random() - 0.5) * 20;
+      p[i * 3 + 1] = (Math.random() - 0.5) * 20;
+      p[i * 3 + 2] = (Math.random() - 0.5) * 20;
     }
-    return positions;
+    return p;
   }, []);
 
+  const mesh = useRef<THREE.Points>(null);
   useFrame((state) => {
     if (mesh.current) {
       mesh.current.rotation.y = state.clock.getElapsedTime() * 0.05;
+      mesh.current.position.y = Math.sin(state.clock.getElapsedTime() * 0.5) * 0.2;
     }
   });
 
@@ -66,28 +72,37 @@ const Particles = () => {
         <bufferAttribute
           attach="attributes-position"
           count={count}
-          array={particlesPosition}
+          array={points}
           itemSize={3}
         />
       </bufferGeometry>
-      <pointsMaterial size={0.05} color="#13b6ec" transparent opacity={0.4} sizeAttenuation />
+      <pointsMaterial 
+        size={0.04} 
+        color="#0ea5e9" 
+        transparent 
+        opacity={0.6} 
+        sizeAttenuation 
+        blending={THREE.AdditiveBlending}
+      />
     </points>
   );
 };
 
 const Scene3D = () => {
   return (
-    <div className="absolute inset-0 -z-10 pointer-events-none">
-      <Canvas>
-        <PerspectiveCamera makeDefault position={[0, 0, 5]} />
-        <ambientLight intensity={0.4} />
-        <pointLight position={[10, 10, 10]} intensity={1.5} color="#13b6ec" />
-        <spotLight position={[-10, 10, 10]} angle={0.15} penumbra={1} intensity={1} />
+    <div className="absolute inset-0 -z-10 pointer-events-none opacity-60">
+      <Canvas dpr={[1, 2]}>
+        <PerspectiveCamera makeDefault position={[0, 0, 8]} fov={45} />
+        <ambientLight intensity={0.2} />
+        <pointLight position={[10, 10, 10]} intensity={2} color="#0ea5e9" />
+        <pointLight position={[-10, -10, -10]} intensity={1} color="#3b82f6" />
+        <spotLight position={[0, 5, 10]} angle={0.3} penumbra={1} intensity={2} castShadow />
         
-        <InteractiveSphere />
-        <Particles />
+        <AbstractCore />
+        <DataParticles />
         
-        <fog attach="fog" args={['#020617', 5, 20]} />
+        <Environment preset="city" />
+        <fog attach="fog" args={['#020617', 5, 25]} />
       </Canvas>
     </div>
   );
