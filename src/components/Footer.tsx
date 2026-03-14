@@ -87,7 +87,7 @@ const Footer = () => {
               &copy; {currentYear} JEAN AIMÉ BARIHUJE. ALL RIGHTS RESERVED.
             </p>
             <p className="text-slate-600 text-[8px] font-mono uppercase tracking-widest">
-              v1.0.3-stable
+              v1.0.4-stable
             </p>
           </div>
           <p className="text-slate-500 text-[10px] font-mono uppercase tracking-widest">
