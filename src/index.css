@@ -48,4 +48,22 @@ html {
 
 body {
   @apply bg-background text-foreground antialiased;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/20 rounded-full border-4 border-background hover:bg-primary/40 transition-colors;
+}
+
+::selection {
+  @apply bg-primary/30 text-white;
 }
