@@ -9,6 +9,7 @@ import Education from '../components/Education';
 import Skills from '../components/Skills';
 import Projects from '../components/Projects';
 import Contact from '../components/Contact';
+import Footer from '../components/Footer';
 import ScrollToTop from '../components/ScrollToTop';
 import CustomCursor from '../components/CustomCursor';
 
@@ -26,13 +27,7 @@ const Index = () => {
         <Projects />
         <Contact />
       </main>
-      <footer className="py-12 border-t border-border text-center">
-        <div className="max-w-7xl mx-auto px-4">
-          <p className="text-muted-foreground text-sm font-mono">
-            &copy; {new Date().getFullYear()} JEAN AIMÉ BARIHUJE // SYSTEM_STATUS: OPERATIONAL
-          </p>
-        </div>
-      </footer>
+      <Footer />
       <ScrollToTop />
     </div>
   );
