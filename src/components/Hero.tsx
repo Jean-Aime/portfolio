@@ -14,12 +14,12 @@ const Hero = () => {
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid lg:grid-cols-12 gap-16 items-center">
+        <div className="grid lg:grid-cols-12 gap-12 items-center">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="lg:col-span-7 space-y-10"
+            className="lg:col-span-7 space-y-8"
           >
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
@@ -36,7 +36,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="text-6xl sm:text-8xl lg:text-[10rem] font-black tracking-tighter leading-[0.85] text-white"
+                className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-tight text-white"
               >
                 JEAN AIMÉ <br/>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-blue-500">
@@ -47,7 +47,7 @@ const Hero = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
-                className="max-w-xl text-lg text-slate-400 font-light leading-relaxed border-l-2 border-primary/20 pl-6"
+                className="max-w-lg text-base sm:text-lg text-slate-400 font-light leading-relaxed border-l-2 border-primary/20 pl-6"
               >
                 Leading digital transformation and innovation. Specializing in <span className="text-white font-semibold">Full-Stack Engineering</span>, <span className="text-white font-semibold">Cybersecurity</span>, and <span className="text-white font-semibold">Enterprise Architecture</span>.
               </motion.p>
@@ -59,18 +59,18 @@ const Hero = () => {
               transition={{ delay: 0.6 }}
               className="flex flex-wrap items-center gap-6"
             >
-              <Button asChild size="lg" className="h-14 px-10 text-base font-bold bg-primary hover:bg-primary/90 text-white rounded-2xl shadow-2xl shadow-primary/20 transition-all hover:scale-105 active:scale-95">
+              <Button asChild size="lg" className="h-12 px-8 text-sm font-bold bg-primary hover:bg-primary/90 text-white rounded-xl shadow-xl shadow-primary/20 transition-all hover:scale-105 active:scale-95">
                 <a href="#projects">
                   View Projects
-                  <ArrowRight className="ml-2" size={18} />
+                  <ArrowRight className="ml-2" size={16} />
                 </a>
               </Button>
               
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3">
                 {[
-                  { icon: <Github size={20} />, href: "https://github.com/Jean-Aime", label: "GitHub" },
-                  { icon: <Linkedin size={20} />, href: "https://linkedin.com/in/jean-aimé-8827b51b4", label: "LinkedIn" },
-                  { icon: <Mail size={20} />, href: "mailto:baraime450@gmail.com", label: "Email" }
+                  { icon: <Github size={18} />, href: "https://github.com/Jean-Aime", label: "GitHub" },
+                  { icon: <Linkedin size={18} />, href: "https://linkedin.com/in/jean-aimé-8827b51b4", label: "LinkedIn" },
+                  { icon: <Mail size={18} />, href: "mailto:baraime450@gmail.com", label: "Email" }
                 ].map((social, i) => (
                   <motion.a
                     key={i}
@@ -78,7 +78,7 @@ const Hero = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ y: -4, scale: 1.1 }}
-                    className="group relative p-4 rounded-2xl bg-white/5 border border-white/10 text-slate-400 hover:text-primary hover:border-primary/40 transition-all backdrop-blur-2xl"
+                    className="group relative p-3 rounded-xl bg-white/5 border border-white/10 text-slate-400 hover:text-primary hover:border-primary/40 transition-all backdrop-blur-2xl"
                     title={social.label}
                   >
                     {social.icon}
@@ -95,27 +95,27 @@ const Hero = () => {
             className="lg:col-span-5 relative hidden lg:block"
           >
             <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-primary to-blue-600 rounded-[2.5rem] blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-700"></div>
-              <div className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl bg-slate-900">
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary to-blue-600 rounded-[2rem] blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-700"></div>
+              <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl bg-slate-900">
                 <img 
                   src="/images/profile.JPG" 
                   alt="Jean Aimé BARIHUJE" 
-                  className="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 transition-all duration-1000 scale-110 group-hover:scale-100" 
+                  className="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 transition-all duration-1000 scale-105 group-hover:scale-100" 
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent opacity-90"></div>
                 
-                <div className="absolute bottom-10 left-10 right-10 p-6 rounded-3xl bg-black/40 backdrop-blur-3xl border border-white/10">
+                <div className="absolute bottom-8 left-8 right-8 p-5 rounded-2xl bg-black/40 backdrop-blur-3xl border border-white/10">
                   <div className="flex items-center justify-between">
                     <div className="space-y-1">
                       <div className="flex items-center gap-2">
-                        <Terminal size={14} className="text-primary" />
-                        <p className="text-[10px] text-primary font-black uppercase tracking-[0.2em]">System Status</p>
+                        <Terminal size={12} className="text-primary" />
+                        <p className="text-[9px] text-primary font-black uppercase tracking-[0.2em]">System Status</p>
                       </div>
-                      <p className="text-white font-mono text-xs">Innovation Lead: Active</p>
+                      <p className="text-white font-mono text-[10px]">Innovation Lead: Active</p>
                     </div>
                     <div className="relative">
-                      <div className="size-3 rounded-full bg-green-500 animate-ping absolute inset-0"></div>
-                      <div className="size-3 rounded-full bg-green-500 relative shadow-[0_0_15px_#22c55e]"></div>
+                      <div className="size-2.5 rounded-full bg-green-500 animate-ping absolute inset-0"></div>
+                      <div className="size-2.5 rounded-full bg-green-500 relative shadow-[0_0_10px_#22c55e]"></div>
                     </div>
                   </div>
                 </div>
