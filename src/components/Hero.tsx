@@ -31,18 +31,18 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex flex-col justify-start pt-8 lg:pt-12 relative overflow-hidden bg-[#020617]">
+    <section id="home" className="min-h-screen flex flex-col justify-start pt-24 lg:pt-32 relative overflow-hidden bg-[#020617]">
       <Scene3D />
       
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-12 items-start">
+        <div className="grid lg:grid-cols-12 gap-12 items-center">
           <motion.div 
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="lg:col-span-7 space-y-6"
+            className="lg:col-span-7 space-y-6 text-center lg:text-left order-1"
           >
             <motion.div 
               variants={itemVariants}
@@ -57,7 +57,7 @@ const Hero = () => {
                 variants={itemVariants}
                 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-tight text-white"
               >
-                <span className="block">JEAN AIMÉ</span>
+                <span className="block">Jean Aimé</span>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-blue-500 block">
                   BARIHUJE
                 </span>
@@ -65,7 +65,7 @@ const Hero = () => {
               
               <motion.p 
                 variants={itemVariants}
-                className="max-w-lg text-base sm:text-lg text-slate-400 font-light leading-relaxed border-l-2 border-primary/20 pl-6"
+                className="max-w-lg mx-auto lg:mx-0 text-base sm:text-lg text-slate-400 font-light leading-relaxed border-l-0 lg:border-l-2 border-primary/20 lg:pl-6"
               >
                 Web Developer and Technology Operations Professional specializing in <span className="text-white font-semibold">Full-Stack Engineering</span>, <span className="text-white font-semibold">Cybersecurity</span>, and <span className="text-white font-semibold">Digital Transformation</span>.
               </motion.p>
@@ -73,7 +73,7 @@ const Hero = () => {
             
             <motion.div 
               variants={itemVariants}
-              className="flex flex-wrap items-center gap-6"
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-6"
             >
               <Button asChild size="lg" className="h-12 px-8 text-sm font-bold bg-primary hover:bg-primary/90 text-white rounded-xl shadow-xl shadow-primary/20 transition-all hover:scale-105 active:scale-95">
                 <a href="#projects">
@@ -103,14 +103,14 @@ const Hero = () => {
               </div>
             </motion.div>
           </motion.div>
-          
+
           <motion.div 
-            initial={{ opacity: 0, scale: 0.9, rotate: 2 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, delay: 0.4, ease: "easeOut" }}
-            className="lg:col-span-5 relative hidden lg:block"
+            className="lg:col-span-5 relative order-2"
           >
-            <div className="relative group max-w-[400px] ml-auto">
+            <div className="relative group max-w-[320px] sm:max-w-[400px] mx-auto lg:ml-auto">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary to-blue-600 rounded-[2rem] blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-700"></div>
               <div className="relative aspect-[4/5] rounded-[2rem] overflow-hidden border border-white/10 shadow-2xl bg-slate-900">
                 <img 

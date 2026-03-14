@@ -67,7 +67,7 @@ const Footer = () => {
             <div className="space-y-4">
               <div className="flex items-center gap-3 text-xs text-slate-500">
                 <Cpu size={14} className="text-primary" />
-                <span>CORE_VERSION: 6.0.2</span>
+                <span>CORE_VERSION: 6.0.3</span>
               </div>
               <div className="flex items-center gap-3 text-xs text-slate-500">
                 <Globe size={14} className="text-primary" />
@@ -75,16 +75,21 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-3 text-xs">
                 <div className="size-2 rounded-full bg-green-500 animate-pulse"></div>
-                <span className="text-green-500 font-mono">STATUS: OPERATIONAL</span>
+                <span className="text-green-500 font-mono">SYNC: ACTIVE</span>
               </div>
             </div>
           </div>
         </div>
 
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-slate-500 text-[10px] font-mono uppercase tracking-widest">
-            &copy; {currentYear} JEAN AIMÉ BARIHUJE. ALL RIGHTS RESERVED.
-          </p>
+          <div className="flex flex-col gap-1">
+            <p className="text-slate-500 text-[10px] font-mono uppercase tracking-widest">
+              &copy; {currentYear} JEAN AIMÉ BARIHUJE. ALL RIGHTS RESERVED.
+            </p>
+            <p className="text-slate-600 text-[8px] font-mono uppercase tracking-widest">
+              v1.0.4-stable
+            </p>
+          </div>
           <p className="text-slate-500 text-[10px] font-mono uppercase tracking-widest">
             DESIGNED & DEVELOPED WITH PRECISION
           </p>
