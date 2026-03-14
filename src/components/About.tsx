@@ -23,14 +23,18 @@ const About = () => {
             className="space-y-8"
           >
             <div className="space-y-4">
-              <h2 className="text-sm font-bold text-primary tracking-[0.3em] uppercase">The Professional</h2>
+              <h2 className="text-sm font-bold text-primary tracking-[0.3em] uppercase">Professional Summary</h2>
               <h3 className="text-4xl sm:text-5xl font-black text-white leading-tight">
-                Driving <span className="text-primary">Digital Transformation</span> through Strategic Innovation.
+                Bridging <span className="text-primary">Technical Expertise</span> with Strategic Innovation.
               </h3>
             </div>
             
             <p className="text-lg text-slate-400 leading-relaxed">
-              I am a Web Developer and Technology Operations Professional with extensive experience in designing modern web applications and managing complex IT infrastructures. My career spans from deep technical roles in cybersecurity to executive leadership in digital innovation, allowing me to bridge the gap between code and corporate strategy.
+              Web Developer and Technology Operations Professional with experience in designing and developing modern web applications, managing IT infrastructure, and supporting digital transformation initiatives. Skilled in full-stack web development, system administration, and cybersecurity, with the ability to build scalable digital platforms and solve complex technical challenges.
+            </p>
+
+            <p className="text-lg text-slate-400 leading-relaxed">
+              Experienced in working within technology-driven environments where software development, operational systems, and innovation intersect. Adept at combining technical expertise with strategic thinking to support organizational growth, digital innovation, and efficient technology operations.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">

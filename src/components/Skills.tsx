@@ -2,26 +2,26 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Code, Server, Lock, Zap, TrendingUp, Briefcase } from 'lucide-react';
+import { Code, Lock, Briefcase } from 'lucide-react';
 
 const Skills = () => {
   const categories = [
     { 
-      title: "Full-Stack Engineering", 
+      title: "Technical Skills", 
       icon: <Code size={24} />, 
-      skills: ["React.js", "TypeScript", "Node.js", "Express.js", "PHP", "Tailwind CSS", "REST APIs"],
+      skills: ["React.js", "TypeScript", "Tailwind CSS", "Node.js", "Express.js", "PHP", "Web Application Development", "Responsive Web Design"],
       color: "from-blue-500/20 to-cyan-500/20"
     },
     { 
       title: "Infrastructure & Security", 
       icon: <Lock size={24} />, 
-      skills: ["Cybersecurity", "Network Security", "System Admin", "Cloud Systems", "Incident Response", "Risk Management"],
+      skills: ["Cybersecurity", "Network Security", "System Admin", "IT Infrastructure", "Network Automation", "Cloud Systems", "Incident Response", "Risk Management"],
       color: "from-purple-500/20 to-pink-500/20"
     },
     { 
       title: "Business & Leadership", 
       icon: <Briefcase size={24} />, 
-      skills: ["Startup Structuring", "Corporate Governance", "Enterprise Architecture", "Innovation Management", "Strategic Partnerships"],
+      skills: ["Startup Company Structuring", "Corporate Governance Design", "Enterprise Organizational Architecture", "Operational Division Management", "Strategic Partnerships Development", "Business Leveraging", "Ecosystem Strategy", "Innovation Management"],
       color: "from-emerald-500/20 to-teal-500/20"
     }
   ];
@@ -31,7 +31,7 @@ const Skills = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-black mb-4">Core Competencies</h2>
-          <p className="text-slate-400 max-w-2xl mx-auto">A comprehensive overview of my technical expertise and strategic leadership capabilities.</p>
+          <p className="text-slate-400 max-w-2xl mx-auto">A comprehensive overview of my technical expertise and strategic leadership capabilities as outlined in my professional profile.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

@@ -2,31 +2,31 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap, Award, Calendar, BrainCircuit } from 'lucide-react';
+import { GraduationCap, BrainCircuit } from 'lucide-react';
 
 const Education = () => {
   const education = [
     {
       degree: "A0 Industrial Information Technology",
       school: "INES Ruhengeri – Musanze",
-      year: "2022 - 2024",
-      description: "Advanced studies in industrial systems, network architecture, and information technology management."
+      year: "2022 – 2024",
+      description: "Advanced studies in industrial systems and information technology management."
     },
     {
       degree: "A2 Software Development",
       school: "BULINGA TVT School – Muhanga",
-      year: "2018 - 2021",
-      description: "Foundational training in programming, software engineering principles, and application development."
+      year: "2018 – 2021",
+      description: "Foundational training in programming and software engineering principles."
     }
   ];
 
   const certifications = [
-    { title: "Artificial Intelligence Ethics", issuer: "Professional Certification", date: "2024" },
-    { title: "Machine Learning & Deep Learning", issuer: "Professional Certification", date: "2024" },
-    { title: "Natural Language Processing & CV", issuer: "Professional Certification", date: "2024" },
-    { title: "IBM Watson AI Model Deployment", issuer: "IBM", date: "2024" },
-    { title: "Mastering Prompt Engineering", issuer: "Professional Certification", date: "2024" },
-    { title: "ALX Professional Foundations", issuer: "ALX", date: "2023" }
+    { title: "Artificial Intelligence Ethics" },
+    { title: "Machine Learning & Deep Learning" },
+    { title: "Natural Language Processing & Computer Vision" },
+    { title: "IBM Watson AI Model Deployment" },
+    { title: "Mastering the Art of Prompt Engineering" },
+    { title: "ALX Professional Foundations" }
   ];
 
   return (
@@ -80,7 +80,6 @@ const Education = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-white text-sm leading-tight">{cert.title}</h4>
-                    <p className="text-[10px] text-slate-500 mt-1">{cert.issuer} • {cert.date}</p>
                   </div>
                 </motion.div>
               ))}

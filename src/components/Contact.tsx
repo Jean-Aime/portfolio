@@ -2,8 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Linkedin, Phone, ArrowUpRight, MessageSquare, Globe, Send } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Mail, Linkedin, Phone, ArrowUpRight, MessageSquare, Send } from 'lucide-react';
 
 const Contact = () => {
   const contactMethods = [
@@ -18,7 +17,7 @@ const Contact = () => {
       icon: <Linkedin className="text-blue-600" size={24} />,
       label: "LinkedIn",
       value: "Jean Aimé BARIHUJE",
-      href: "https://www.linkedin.com/in/jean-aimé-8827b51b4",
+      href: "https://linkedin.com/in/jean-aimé-8827b51b4",
       description: "Let's connect and share industry insights."
     },
     {
@@ -32,7 +31,6 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-32 relative overflow-hidden">
-      {/* Background Glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
       
       <div className="max-w-7xl mx-auto px-4 relative z-10">
@@ -55,15 +53,9 @@ const Contact = () => {
           >
             Let's Build the <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-400">Future</span> Together
           </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-slate-400 max-w-2xl mx-auto text-lg"
-          >
-            Currently open to strategic leadership roles, innovative web projects, and digital transformation consulting.
-          </motion.p>
+          <p className="text-slate-400 max-w-2xl mx-auto text-lg">
+            Kigali, Rwanda • +250 788 712 679 • baraime450@gmail.com
+          </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">

@@ -30,18 +30,6 @@ const Hero = () => {
     },
   };
 
-  const nameVariants = {
-    hidden: { opacity: 0, x: -20 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: 1,
-        ease: [0.21, 0.47, 0.32, 0.98],
-      },
-    },
-  };
-
   return (
     <section id="home" className="min-h-screen flex flex-col justify-start pt-8 lg:pt-12 relative overflow-hidden bg-[#020617]">
       <Scene3D />
@@ -66,32 +54,20 @@ const Hero = () => {
             
             <div className="space-y-4">
               <motion.h1 
-                variants={nameVariants}
+                variants={itemVariants}
                 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-tight text-white"
               >
-                <motion.span
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                  className="block"
-                >
-                  JEAN AIMÉ
-                </motion.span>
-                <motion.span 
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                  className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-blue-500 block"
-                >
+                <span className="block">JEAN AIMÉ</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-400 to-blue-500 block">
                   BARIHUJE
-                </motion.span>
+                </span>
               </motion.h1>
               
               <motion.p 
                 variants={itemVariants}
                 className="max-w-lg text-base sm:text-lg text-slate-400 font-light leading-relaxed border-l-2 border-primary/20 pl-6"
               >
-                Leading digital transformation and innovation. Specializing in <span className="text-white font-semibold">Full-Stack Engineering</span>, <span className="text-white font-semibold">Cybersecurity</span>, and <span className="text-white font-semibold">Enterprise Architecture</span>.
+                Web Developer and Technology Operations Professional specializing in <span className="text-white font-semibold">Full-Stack Engineering</span>, <span className="text-white font-semibold">Cybersecurity</span>, and <span className="text-white font-semibold">Digital Transformation</span>.
               </motion.p>
             </div>
             

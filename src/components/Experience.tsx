@@ -2,41 +2,41 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Code, Briefcase, Rocket, Globe } from 'lucide-react';
+import { Shield, Code, Briefcase, Rocket } from 'lucide-react';
 
 const Experience = () => {
   const jobs = [
     {
       title: "Chief Digital Assets & Innovation Officer",
       company: "Oderson Holdings Ltd",
-      date: "2025 - 2026",
-      desc: "Leading digital strategy and technology management across a multi-company ecosystem. Overseeing digital platforms, innovation initiatives, and digital asset governance.",
+      date: "2025 – 2026",
+      desc: "Led digital strategy and technology management across a multi-company ecosystem, overseeing digital platforms, innovation initiatives, and digital asset governance.",
       icon: <Rocket size={20} />,
       tags: ["Digital Strategy", "Innovation", "Asset Governance"]
     },
     {
       title: "Chief Operations Officer",
       company: "Technology Subsidiary – Oderson Holdings",
-      date: "2024 - 2025",
-      desc: "Oversaw operational management across multiple divisions including Marketing, Production, and Customer Relations. Implemented organizational structures for scalability.",
+      date: "2024 – 2025",
+      desc: "Oversaw operational management across multiple divisions including Marketing, Production, Customer Relations, and Certification. Implemented organizational structures for scalability.",
       icon: <Briefcase size={20} />,
       tags: ["Operations", "Leadership", "Scalability"]
     },
     {
       title: "IT Support & System Administrator",
-      company: "IWACU Recovery Centre",
-      date: "2019 - 2024",
-      desc: "Managed network infrastructure and cybersecurity systems. Implemented firewall protection, security protocols, and conducted cybersecurity awareness training.",
+      company: "IWACU Recovery Centre – Kigali",
+      date: "2019 – 2024",
+      desc: "Managed network infrastructure and cybersecurity systems. Implemented firewall protection, antivirus systems, and security protocols. Provided technical support and maintained backup systems.",
       icon: <Shield size={20} />,
       tags: ["Cybersecurity", "SysAdmin", "Network Security"]
     },
     {
       title: "Web Developer",
-      company: "Primates Africa",
-      date: "2023 - 2024",
-      desc: "Designed and developed secure web applications. Improved website functionality, user experience, and implemented security updates.",
+      company: "Primates Africa – Musanze",
+      date: "2023 – 2024",
+      desc: "Designed and developed secure web applications and digital platforms. Improved website functionality, user experience, and implemented security updates.",
       icon: <Code size={20} />,
-      tags: ["Web Dev", "React", "Security Optimization"]
+      tags: ["Web Dev", "Security Optimization", "UX Design"]
     }
   ];
 
@@ -44,7 +44,7 @@ const Experience = () => {
     <section id="experience" className="py-32 bg-accent/5">
       <div className="max-w-4xl mx-auto px-4">
         <div className="mb-20 text-center">
-          <h2 className="text-4xl md:text-5xl font-black mb-4">Professional Journey</h2>
+          <h2 className="text-4xl md:text-5xl font-black mb-4">Professional Experience</h2>
           <div className="h-1.5 w-20 bg-primary mx-auto rounded-full"></div>
         </div>
         
