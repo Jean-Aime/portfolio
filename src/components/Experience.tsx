@@ -2,25 +2,41 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Code, Briefcase, Server } from 'lucide-react';
+import { Shield, Code, Briefcase, Rocket, Globe } from 'lucide-react';
 
 const Experience = () => {
   const jobs = [
     {
-      title: "IT Support Officer",
-      company: "Iwacu Recovery Centre",
+      title: "Chief Digital Assets & Innovation Officer",
+      company: "Oderson Holdings Ltd",
+      date: "2025 - 2026",
+      desc: "Leading digital strategy and technology management across a multi-company ecosystem. Overseeing digital platforms, innovation initiatives, and digital asset governance.",
+      icon: <Rocket size={20} />,
+      tags: ["Digital Strategy", "Innovation", "Asset Governance"]
+    },
+    {
+      title: "Chief Operations Officer",
+      company: "Technology Subsidiary – Oderson Holdings",
+      date: "2024 - 2025",
+      desc: "Oversaw operational management across multiple divisions including Marketing, Production, and Customer Relations. Implemented organizational structures for scalability.",
+      icon: <Briefcase size={20} />,
+      tags: ["Operations", "Leadership", "Scalability"]
+    },
+    {
+      title: "IT Support & System Administrator",
+      company: "IWACU Recovery Centre",
       date: "2019 - 2024",
-      desc: "Spearheaded the maintenance and security of critical network infrastructure. Implemented advanced firewalls and IDS/IPS systems to ensure 99.9% uptime and data integrity.",
+      desc: "Managed network infrastructure and cybersecurity systems. Implemented firewall protection, security protocols, and conducted cybersecurity awareness training.",
       icon: <Shield size={20} />,
-      tags: ["Network Security", "Firewalls", "Infrastructure"]
+      tags: ["Cybersecurity", "SysAdmin", "Network Security"]
     },
     {
       title: "Web Developer",
       company: "Primates Africa",
       date: "2023 - 2024",
-      desc: "Designed and maintained secure web applications with a focus on data privacy and user experience. Optimized backend performance and implemented robust authentication protocols.",
+      desc: "Designed and developed secure web applications. Improved website functionality, user experience, and implemented security updates.",
       icon: <Code size={20} />,
-      tags: ["React", "Node.js", "Security"]
+      tags: ["Web Dev", "React", "Security Optimization"]
     }
   ];
 

@@ -5,10 +5,10 @@ import { motion } from 'framer-motion';
 
 const FULL_TEXT = [
   "> Initializing secure connection...",
-  "> Accessing BARIHUJE_CORE_V5.sys",
-  "> Identity: Cybersecurity Architect",
-  "> Specialization: Zero-Trust Systems",
-  "> Status: Ready for deployment",
+  "> Accessing BARIHUJE_CORE_V6.sys",
+  "> Identity: Chief Digital Assets & Innovation Officer",
+  "> Specialization: Enterprise Architecture & AI",
+  "> Status: Leading Digital Transformation",
   "> Location: Kigali, Rwanda",
   "> [SUCCESS] System fully operational."
 ];

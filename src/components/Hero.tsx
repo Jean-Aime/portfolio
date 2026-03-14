@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Github, Mail, Linkedin, ArrowRight, ShieldCheck, Terminal } from 'lucide-react';
+import { Github, Mail, Linkedin, ArrowRight, Terminal } from 'lucide-react';
 import Scene3D from './Scene3D';
 
 const Hero = () => {
@@ -11,7 +11,6 @@ const Hero = () => {
     <section id="home" className="min-h-screen flex flex-col justify-center relative overflow-hidden bg-[#020617]">
       <Scene3D />
       
-      {/* Background Grid Effect */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -29,7 +28,7 @@ const Hero = () => {
               className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 backdrop-blur-xl"
             >
               <div className="size-2 rounded-full bg-primary animate-pulse"></div>
-              <span className="text-[10px] font-black text-primary tracking-[0.2em] uppercase">Cybersecurity Architect & Full-Stack Engineer</span>
+              <span className="text-[10px] font-black text-primary tracking-[0.2em] uppercase">Chief Digital Assets & Innovation Officer</span>
             </motion.div>
             
             <div className="space-y-4">
@@ -50,7 +49,7 @@ const Hero = () => {
                 transition={{ delay: 0.5 }}
                 className="max-w-xl text-lg text-slate-400 font-light leading-relaxed border-l-2 border-primary/20 pl-6"
               >
-                Engineering high-integrity digital systems. Specializing in <span className="text-white font-semibold">Zero-Trust architectures</span> and high-performance web ecosystems.
+                Leading digital transformation and innovation. Specializing in <span className="text-white font-semibold">Full-Stack Engineering</span>, <span className="text-white font-semibold">Cybersecurity</span>, and <span className="text-white font-semibold">Enterprise Architecture</span>.
               </motion.p>
             </div>
             
@@ -62,7 +61,7 @@ const Hero = () => {
             >
               <Button asChild size="lg" className="h-14 px-10 text-base font-bold bg-primary hover:bg-primary/90 text-white rounded-2xl shadow-2xl shadow-primary/20 transition-all hover:scale-105 active:scale-95">
                 <a href="#projects">
-                  Explore Systems
+                  View Projects
                   <ArrowRight className="ml-2" size={18} />
                 </a>
               </Button>
@@ -70,7 +69,7 @@ const Hero = () => {
               <div className="flex items-center gap-4">
                 {[
                   { icon: <Github size={20} />, href: "https://github.com/Jean-Aime", label: "GitHub" },
-                  { icon: <Linkedin size={20} />, href: "https://www.linkedin.com/in/jean-aimé-8827b51b4", label: "LinkedIn" },
+                  { icon: <Linkedin size={20} />, href: "https://linkedin.com/in/jean-aimé-8827b51b4", label: "LinkedIn" },
                   { icon: <Mail size={20} />, href: "mailto:baraime450@gmail.com", label: "Email" }
                 ].map((social, i) => (
                   <motion.a
@@ -83,9 +82,6 @@ const Hero = () => {
                     title={social.label}
                   >
                     {social.icon}
-                    <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-[10px] font-bold text-primary opacity-0 group-hover:opacity-100 transition-opacity uppercase tracking-widest">
-                      {social.label}
-                    </span>
                   </motion.a>
                 ))}
               </div>
@@ -115,7 +111,7 @@ const Hero = () => {
                         <Terminal size={14} className="text-primary" />
                         <p className="text-[10px] text-primary font-black uppercase tracking-[0.2em]">System Status</p>
                       </div>
-                      <p className="text-white font-mono text-xs">Encrypted Connection: Active</p>
+                      <p className="text-white font-mono text-xs">Innovation Lead: Active</p>
                     </div>
                     <div className="relative">
                       <div className="size-3 rounded-full bg-green-500 animate-ping absolute inset-0"></div>

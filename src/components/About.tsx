@@ -7,8 +7,8 @@ import Terminal from './Terminal';
 
 const About = () => {
   const stats = [
-    { label: "Experience", value: "5+ Years", icon: <TerminalIcon size={20} /> },
-    { label: "Projects", value: "20+", icon: <Cpu size={20} /> },
+    { label: "Experience", value: "6+ Years", icon: <TerminalIcon size={20} /> },
+    { label: "Projects", value: "25+", icon: <Cpu size={20} /> },
     { label: "Security", value: "Expert", icon: <Shield size={20} /> },
   ];
 
@@ -25,12 +25,12 @@ const About = () => {
             <div className="space-y-4">
               <h2 className="text-sm font-bold text-primary tracking-[0.3em] uppercase">The Professional</h2>
               <h3 className="text-4xl sm:text-5xl font-black text-white leading-tight">
-                Bridging the gap between <span className="text-primary">Security</span> and <span className="text-primary">Innovation</span>.
+                Driving <span className="text-primary">Digital Transformation</span> through Strategic Innovation.
               </h3>
             </div>
             
             <p className="text-lg text-slate-400 leading-relaxed">
-              I am an Industrial Information Technology graduate with a deep passion for securing digital landscapes. My expertise lies at the intersection of robust network security and modern full-stack development. I don't just build applications; I engineer high-integrity systems designed to withstand the complexities of the modern web.
+              I am a Web Developer and Technology Operations Professional with extensive experience in designing modern web applications and managing complex IT infrastructures. My career spans from deep technical roles in cybersecurity to executive leadership in digital innovation, allowing me to bridge the gap between code and corporate strategy.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -56,13 +56,13 @@ const About = () => {
             <div className="mt-8 grid grid-cols-2 gap-4">
               <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/30 transition-all">
                 <Lock className="text-primary mb-4" size={32} />
-                <h4 className="text-lg font-bold text-white mb-2">Cybersecurity</h4>
-                <p className="text-xs text-slate-400">Hardening infrastructures and implementing zero-trust architectures.</p>
+                <h4 className="text-lg font-bold text-white mb-2">Tech Ops</h4>
+                <p className="text-xs text-slate-400">Managing digital assets and securing multi-company ecosystems.</p>
               </div>
               <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/30 transition-all">
                 <Zap className="text-primary mb-4" size={32} />
-                <h4 className="text-lg font-bold text-white mb-2">Full-Stack</h4>
-                <p className="text-xs text-slate-400">Creating scalable, secure, and user-centric web applications.</p>
+                <h4 className="text-lg font-bold text-white mb-2">Innovation</h4>
+                <p className="text-xs text-slate-400">Implementing organizational structures for scalability and growth.</p>
               </div>
             </div>
           </motion.div>

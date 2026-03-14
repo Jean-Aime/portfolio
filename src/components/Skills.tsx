@@ -2,26 +2,26 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Code, Database, Cpu, Globe, Lock } from 'lucide-react';
+import { Shield, Code, Server, Lock, Zap, TrendingUp, Briefcase } from 'lucide-react';
 
 const Skills = () => {
   const categories = [
     { 
-      title: "Security Architecture", 
-      icon: <Lock size={24} />, 
-      skills: ["Firewalls", "Penetration Testing", "Encryption", "Zero-Trust", "IDS/IPS"],
+      title: "Full-Stack Engineering", 
+      icon: <Code size={24} />, 
+      skills: ["React.js", "TypeScript", "Node.js", "Express.js", "PHP", "Tailwind CSS", "REST APIs"],
       color: "from-blue-500/20 to-cyan-500/20"
     },
     { 
-      title: "Full-Stack Engineering", 
-      icon: <Code size={24} />, 
-      skills: ["React", "Node.js", "TypeScript", "PostgreSQL", "REST APIs"],
+      title: "Infrastructure & Security", 
+      icon: <Lock size={24} />, 
+      skills: ["Cybersecurity", "Network Security", "System Admin", "Cloud Systems", "Incident Response", "Risk Management"],
       color: "from-purple-500/20 to-pink-500/20"
     },
     { 
-      title: "Systems & Cloud", 
-      icon: <Server size={24} />, 
-      skills: ["Linux Admin", "Cloud Security", "Automation", "Docker", "CI/CD"],
+      title: "Business & Leadership", 
+      icon: <Briefcase size={24} />, 
+      skills: ["Startup Structuring", "Corporate Governance", "Enterprise Architecture", "Innovation Management", "Strategic Partnerships"],
       color: "from-emerald-500/20 to-teal-500/20"
     }
   ];
@@ -30,8 +30,8 @@ const Skills = () => {
     <section id="skills" className="py-32 relative">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-black mb-4">Technical Expertise</h2>
-          <p className="text-slate-400 max-w-2xl mx-auto">A comprehensive overview of my technical stack and specialized domains.</p>
+          <h2 className="text-4xl md:text-5xl font-black mb-4">Core Competencies</h2>
+          <p className="text-slate-400 max-w-2xl mx-auto">A comprehensive overview of my technical expertise and strategic leadership capabilities.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -66,8 +66,5 @@ const Skills = () => {
     </section>
   );
 };
-
-// Helper component for Server icon since it wasn't imported
-const Server = ({ size }: { size: number }) => <Cpu size={size} />;
 
 export default Skills;

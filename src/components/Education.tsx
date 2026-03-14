@@ -2,29 +2,31 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap, Award, Calendar } from 'lucide-react';
+import { GraduationCap, Award, Calendar, BrainCircuit } from 'lucide-react';
 
 const Education = () => {
   const education = [
     {
-      degree: "Advanced Diploma in Industrial Information Technology",
-      school: "Integrated Polytechnic Regional College (IPRC)",
+      degree: "A0 Industrial Information Technology",
+      school: "INES Ruhengeri – Musanze",
+      year: "2022 - 2024",
+      description: "Advanced studies in industrial systems, network architecture, and information technology management."
+    },
+    {
+      degree: "A2 Software Development",
+      school: "BULINGA TVT School – Muhanga",
       year: "2018 - 2021",
-      description: "Focused on network security, systems administration, and software engineering."
+      description: "Foundational training in programming, software engineering principles, and application development."
     }
   ];
 
   const certifications = [
-    {
-      title: "Certified Ethical Hacker (CEH)",
-      issuer: "EC-Council",
-      date: "2023"
-    },
-    {
-      title: "Cisco Certified Network Associate (CCNA)",
-      issuer: "Cisco",
-      date: "2022"
-    }
+    { title: "Artificial Intelligence Ethics", issuer: "Professional Certification", date: "2024" },
+    { title: "Machine Learning & Deep Learning", issuer: "Professional Certification", date: "2024" },
+    { title: "Natural Language Processing & CV", issuer: "Professional Certification", date: "2024" },
+    { title: "IBM Watson AI Model Deployment", issuer: "IBM", date: "2024" },
+    { title: "Mastering Prompt Engineering", issuer: "Professional Certification", date: "2024" },
+    { title: "ALX Professional Foundations", issuer: "ALX", date: "2023" }
   ];
 
   return (
@@ -63,7 +65,7 @@ const Education = () => {
               <h2 className="text-4xl font-bold mb-4">Certifications</h2>
               <div className="h-1 w-20 bg-primary rounded-full"></div>
             </div>
-            <div className="grid gap-4">
+            <div className="grid sm:grid-cols-2 gap-4">
               {certifications.map((cert, i) => (
                 <motion.div 
                   key={i}
@@ -71,21 +73,14 @@ const Education = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="p-6 rounded-xl bg-white/5 border border-white/10 flex items-center gap-4 hover:border-primary/50 transition-colors"
+                  className="p-4 rounded-xl bg-white/5 border border-white/10 flex items-start gap-3 hover:border-primary/50 transition-colors"
                 >
-                  <div className="size-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
-                    <Award size={24} />
+                  <div className="size-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0">
+                    <BrainCircuit size={20} />
                   </div>
                   <div>
-                    <h4 className="font-bold text-white">{cert.title}</h4>
-                    <div className="flex items-center gap-2 text-xs text-slate-500 mt-1">
-                      <span>{cert.issuer}</span>
-                      <span>•</span>
-                      <div className="flex items-center gap-1">
-                        <Calendar size={12} />
-                        {cert.date}
-                      </div>
-                    </div>
+                    <h4 className="font-bold text-white text-sm leading-tight">{cert.title}</h4>
+                    <p className="text-[10px] text-slate-500 mt-1">{cert.issuer} • {cert.date}</p>
                   </div>
                 </motion.div>
               ))}
