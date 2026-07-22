@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Github, Code, ArrowRight, Layout, Globe, Plane, Search, Layers, RefreshCw } from 'lucide-react';
+import { ExternalLink, Github, ArrowRight, Layout, Globe, Plane, Search, RefreshCw, Lock, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useGithubProjects } from '@/hooks/useGithubProjects';
 
@@ -16,40 +16,43 @@ const Projects = () => {
   const featuredProjects = [
     {
       id: 1,
-      name: "Jacom-Platform",
+      name: "Jascome Platform",
       category: "Enterprise",
-      description: "A comprehensive enterprise-grade platform designed for streamlined business operations, asset oversight, and digital workflows.",
+      description: "An enterprise platform for Jascome providing modern business operation management, digital asset oversight, and scalable corporate workflows.",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
       icon: <Layout size={22} />,
-      tags: ["React", "Node.js", "Enterprise Architecture", "REST API"],
-      link: "https://github.com/Jean-Aime/Jacom-Platform",
-      live: "https://github.com/Jean-Aime/Jacom-Platform"
+      tags: ["React", "TypeScript", "Enterprise Operations", "Digital Assets"],
+      link: "https://github.com/Jean-Aime/Jascome",
+      live: "https://www.jascome.com/",
+      isPrivate: true
     },
     {
       id: 2,
-      name: "EditionSystem",
-      category: "CMS & Publishing",
-      description: "An advanced content management and digital publishing system built for high-performance editorial workflows and multi-role operations.",
-      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2372&auto=format&fit=crop",
-      icon: <Code size={22} />,
-      tags: ["TypeScript", "CMS", "Workflow Management", "Security"],
-      link: "https://github.com/Jean-Aime/editionsystem",
-      live: "https://github.com/Jean-Aime/editionsystem"
+      name: "Forever Young Tours",
+      category: "Tourism & Booking",
+      description: "A premier tour and travel platform for booking African safari experiences, custom itineraries, and eco-tours in East Africa.",
+      image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=2400&auto=format&fit=crop",
+      icon: <Plane size={22} />,
+      tags: ["Web Engineering", "Booking Platform", "UX Design", "Travel Tech"],
+      link: "https://github.com/Jean-Aime/foreveryoung",
+      live: "https://iforeveryoungtours.com/",
+      isPrivate: true
     },
     {
       id: 3,
-      name: "MyTravel",
-      category: "Mobile & Apps",
-      description: "A modern travel planning and booking ecosystem featuring real-time location updates, booking pipelines, and seamless user experiences.",
-      image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=2535&auto=format&fit=crop",
-      icon: <Plane size={22} />,
-      tags: ["React Native", "API Integration", "Travel Platform"],
-      link: "https://github.com/Jean-Aime/mytravel",
-      live: "https://github.com/Jean-Aime/mytravel"
+      name: "Zetalent Media",
+      category: "Media & Agency",
+      description: "A high-performance digital media platform designed for talent showcase, creative content distribution, and interactive media services.",
+      image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=2400&auto=format&fit=crop",
+      icon: <Globe size={22} />,
+      tags: ["Full Stack", "Media Platform", "Creative Tech", "Tailwind CSS"],
+      link: "https://github.com/Jean-Aime/zetalent",
+      live: "https://zetalent-media.com/",
+      isPrivate: false
     }
   ];
 
-  const categories = ["All", "Enterprise", "CMS & Publishing", "Mobile & Apps"];
+  const categories = ["All", "Enterprise", "Tourism & Booking", "Media & Agency"];
 
   const filteredProjects = featuredProjects.filter(project => {
     const matchesCategory = activeCategory === "All" || project.category === activeCategory;
@@ -79,10 +82,10 @@ const Projects = () => {
             viewport={{ once: true }}
             className="text-4xl sm:text-5xl font-black mb-4 tracking-tight"
           >
-            Featured <span className="text-primary">Deployments & Code</span>
+            Featured <span className="text-primary">Live Deployments</span>
           </motion.h2>
           <p className="text-slate-400 max-w-2xl mx-auto text-base">
-            Architected and developed enterprise platforms, custom software tools, and digital solutions.
+            Architected, built, and launched production platforms serving real-world businesses across East Africa.
           </p>
         </div>
 
@@ -137,8 +140,9 @@ const Projects = () => {
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
-                    <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[10px] font-mono text-cyan-400">
-                      {project.category}
+                    <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/10 text-[10px] font-mono text-cyan-400 flex items-center gap-1.5">
+                      {project.isPrivate && <Lock size={10} className="text-amber-400" />}
+                      <span>{project.category}</span>
                     </div>
                     <div className="absolute bottom-3 left-3 size-10 rounded-xl bg-primary/20 backdrop-blur-md border border-primary/30 flex items-center justify-center text-primary">
                       {project.icon}
@@ -146,9 +150,12 @@ const Projects = () => {
                   </div>
                   
                   <div className="p-6">
-                    <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors text-white">
-                      {project.name}
-                    </h3>
+                    <div className="flex items-center justify-between mb-1">
+                      <h3 className="text-xl font-bold group-hover:text-primary transition-colors text-white">
+                        {project.name}
+                      </h3>
+                    </div>
+                    
                     <p className="text-slate-400 text-xs leading-relaxed mb-6 line-clamp-3">
                       {project.description}
                     </p>
@@ -166,12 +173,13 @@ const Projects = () => {
                 <div className="p-6 pt-0 flex items-center gap-3">
                   <Button variant="outline" size="sm" className="flex-1 gap-2 rounded-xl border-white/10 hover:bg-white/5 text-xs" asChild>
                     <a href={project.link} target="_blank" rel="noopener noreferrer">
-                      <Github size={14} /> Repository
+                      <Github size={14} /> 
+                      {project.isPrivate ? "Repo (Private)" : "Repository"}
                     </a>
                   </Button>
                   <Button size="sm" className="flex-1 gap-2 rounded-xl bg-primary hover:bg-primary/90 text-xs shadow-md shadow-primary/20" asChild>
                     <a href={project.live} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink size={14} /> Details
+                      <ExternalLink size={14} /> Live Site
                     </a>
                   </Button>
                 </div>
@@ -187,7 +195,7 @@ const Projects = () => {
               <h3 className="text-lg font-bold text-white flex items-center gap-2">
                 <Github size={20} className="text-primary" /> Live Repositories Feed
               </h3>
-              <p className="text-xs text-slate-400">Direct integration with Jean-Aimé's GitHub activity</p>
+              <p className="text-xs text-slate-400">Direct integration with Jean-Aimé's public GitHub activity</p>
             </div>
             <Button
               onClick={() => setShowGithubRepos(!showGithubRepos)}
