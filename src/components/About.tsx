@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Terminal as TerminalIcon, Cpu, Lock, Zap, Award } from 'lucide-react';
+import { Shield, Terminal as TerminalIcon, Cpu, Lock, Zap } from 'lucide-react';
 import Terminal from './Terminal';
 
 const About = () => {
@@ -13,9 +13,9 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-28 relative overflow-hidden bg-slate-950/20">
+    <section id="about" className="py-12 sm:py-16 relative overflow-hidden bg-slate-950/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -37,9 +37,9 @@ const About = () => {
               Adept at unifying software engineering with operational governance, multi-company digital asset management, and risk mitigations to build resilient, scalable ecosystems.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
               {stats.map((stat, i) => (
-                <div key={i} className="p-5 rounded-2xl bg-slate-900/80 border border-white/10 backdrop-blur-sm hover:border-primary/40 transition-all group">
+                <div key={i} className="p-4 rounded-2xl bg-slate-900/80 border border-white/10 backdrop-blur-sm hover:border-primary/40 transition-all group">
                   <div className="text-primary mb-2 group-hover:scale-110 transition-transform">{stat.icon}</div>
                   <div className="text-2xl font-black text-white">{stat.value}</div>
                   <div className="text-[10px] text-slate-400 uppercase tracking-wider font-mono mt-1">{stat.label}</div>
@@ -57,15 +57,15 @@ const About = () => {
             <div className="absolute -inset-4 bg-primary/10 blur-3xl rounded-full opacity-60"></div>
             <Terminal />
             
-            <div className="mt-6 grid grid-cols-2 gap-4">
-              <div className="p-5 rounded-2xl bg-slate-900/80 border border-white/10 hover:border-primary/40 transition-all">
-                <Lock className="text-primary mb-3" size={28} />
-                <h4 className="text-base font-bold text-white mb-1">Tech Operations</h4>
+            <div className="mt-4 grid grid-cols-2 gap-4">
+              <div className="p-4 rounded-2xl bg-slate-900/80 border border-white/10 hover:border-primary/40 transition-all">
+                <Lock className="text-primary mb-2" size={24} />
+                <h4 className="text-sm font-bold text-white mb-1">Tech Operations</h4>
                 <p className="text-xs text-slate-400 leading-relaxed">Overseeing corporate systems, cybersecurity, and asset governance.</p>
               </div>
-              <div className="p-5 rounded-2xl bg-slate-900/80 border border-white/10 hover:border-primary/40 transition-all">
-                <Zap className="text-primary mb-3" size={28} />
-                <h4 className="text-base font-bold text-white mb-1">Digital Innovation</h4>
+              <div className="p-4 rounded-2xl bg-slate-900/80 border border-white/10 hover:border-primary/40 transition-all">
+                <Zap className="text-primary mb-2" size={24} />
+                <h4 className="text-sm font-bold text-white mb-1">Digital Innovation</h4>
                 <p className="text-xs text-slate-400 leading-relaxed">Designing organizational structures built for scale, agility, and growth.</p>
               </div>
             </div>

@@ -10,7 +10,7 @@ const Skills = () => {
   const categories = [
     { 
       title: "Technical & Full Stack", 
-      icon: <Code size={22} />, 
+      icon: <Code size={20} />, 
       description: "Building scalable web and mobile software solutions.",
       skills: [
         { name: "React.js & Next.js", level: 92 },
@@ -24,7 +24,7 @@ const Skills = () => {
     },
     { 
       title: "Infrastructure & Cybersecurity", 
-      icon: <Lock size={22} />, 
+      icon: <Lock size={20} />, 
       description: "Securing corporate networks and maintaining core systems.",
       skills: [
         { name: "Network Infrastructure & Firewalls", level: 92 },
@@ -38,7 +38,7 @@ const Skills = () => {
     },
     { 
       title: "Executive & Digital Innovation", 
-      icon: <Briefcase size={22} />, 
+      icon: <Briefcase size={20} />, 
       description: "Leading digital transformation and technology governance.",
       skills: [
         { name: "Startup Structuring & Architecture", level: 95 },
@@ -53,48 +53,48 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-28 relative">
+    <section id="skills" className="py-12 sm:py-16 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-widest mb-4"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-widest mb-3"
           >
-            <Cpu size={13} />
+            <Cpu size={12} />
             <span>Core Competencies</span>
           </motion.div>
           <motion.h2 
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl sm:text-5xl font-black mb-4 tracking-tight"
+            className="text-3xl sm:text-4xl md:text-5xl font-black mb-3 tracking-tight"
           >
             Technical & Leadership <span className="text-primary">Mastery</span>
           </motion.h2>
-          <p className="text-slate-400 max-w-2xl mx-auto text-base">
+          <p className="text-slate-400 max-w-2xl mx-auto text-xs sm:text-sm">
             Combining deep hands-on technical execution with high-level corporate and operational leadership.
           </p>
         </div>
 
         {/* Category Tabs */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
           {categories.map((cat, i) => (
             <button
               key={i}
               onClick={() => setSelectedCategory(i)}
-              className={`p-6 rounded-2xl border text-left transition-all duration-300 flex items-start gap-4 ${
+              className={`p-5 rounded-2xl border text-left transition-all duration-300 flex items-start gap-4 ${
                 selectedCategory === i
                   ? "bg-slate-900 border-primary shadow-xl shadow-primary/10"
                   : "bg-slate-900/40 border-white/10 hover:border-white/20 text-slate-400"
               }`}
             >
-              <div className={`p-3 rounded-xl ${selectedCategory === i ? "bg-primary text-white" : "bg-white/5 text-primary"}`}>
+              <div className={`p-2.5 rounded-xl ${selectedCategory === i ? "bg-primary text-white" : "bg-white/5 text-primary"}`}>
                 {cat.icon}
               </div>
               <div>
-                <h3 className="font-bold text-base text-white mb-1">{cat.title}</h3>
+                <h3 className="font-bold text-sm text-white mb-0.5">{cat.title}</h3>
                 <p className="text-xs text-slate-400 leading-relaxed">{cat.description}</p>
               </div>
             </button>
@@ -106,22 +106,22 @@ const Skills = () => {
           key={selectedCategory}
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="bg-slate-900/80 border border-white/10 rounded-3xl p-6 sm:p-10 backdrop-blur-xl"
+          transition={{ duration: 0.3 }}
+          className="bg-slate-900/80 border border-white/10 rounded-3xl p-6 sm:p-8 backdrop-blur-xl"
         >
-          <div className="flex items-center gap-3 mb-8">
-            <Sparkles size={18} className="text-primary" />
-            <h3 className="text-xl font-bold text-white">
+          <div className="flex items-center gap-2.5 mb-6">
+            <Sparkles size={16} className="text-primary" />
+            <h3 className="text-lg font-bold text-white">
               {categories[selectedCategory].title} Proficiency Matrix
             </h3>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-x-12 gap-y-6">
+          <div className="grid md:grid-cols-2 gap-x-10 gap-y-5">
             {categories[selectedCategory].skills.map((skill, idx) => (
-              <div key={idx} className="space-y-2">
+              <div key={idx} className="space-y-1.5">
                 <div className="flex justify-between items-center text-xs">
                   <span className="font-bold text-slate-200 flex items-center gap-2">
-                    <CheckCircle2 size={14} className="text-primary" />
+                    <CheckCircle2 size={13} className="text-primary" />
                     {skill.name}
                   </span>
                   <span className="font-mono text-primary font-bold">{skill.level}%</span>
@@ -130,7 +130,7 @@ const Skills = () => {
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${skill.level}%` }}
-                    transition={{ duration: 1, delay: idx * 0.08 }}
+                    transition={{ duration: 0.8, delay: idx * 0.05 }}
                     className="h-full bg-gradient-to-r from-primary to-cyan-400 rounded-full"
                   />
                 </div>
