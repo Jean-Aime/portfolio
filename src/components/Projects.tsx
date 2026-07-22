@@ -76,8 +76,8 @@ const Projects = () => {
       category: "Tourism & Travel",
       description: "An East African tourism and travel platform enabling international travelers to discover, customize, and book luxury African gorilla trekking safaris, cultural expeditions, and eco-tours across Rwanda and East Africa.",
       liveUrl: "https://iforeveryoungtours.com/",
-      // Breathtaking East African safari wildlife landscape image
-      image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=2000&auto=format&fit=crop",
+      // Vibrant African safari savannah & wildlife experience image
+      image: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?q=80&w=2000&auto=format&fit=crop",
       icon: <Plane className="text-emerald-400" size={24} />,
       highlights: [
         "Customizable tour itinerary planner & real-time safari booking",
