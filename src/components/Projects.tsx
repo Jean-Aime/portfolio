@@ -32,8 +32,8 @@ const Projects = () => {
       category: "Enterprise System",
       description: "An enterprise platform for Jascome providing modern business operation management, digital asset oversight, and scalable corporate workflows.",
       liveUrl: "https://www.jascome.com/",
-      // Live dynamic screenshot generated directly from the real homepage
-      image: "https://image.thum.io/get/width/1200/crop/800/noanimate/https://www.jascome.com/",
+      // High quality enterprise software & corporate operations image
+      image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=2000&auto=format&fit=crop",
       icon: <Layout className="text-cyan-400" size={24} />,
       highlights: [
         "Digital asset governance and multi-tenant operational security",
@@ -54,8 +54,8 @@ const Projects = () => {
       category: "Tourism & Booking",
       description: "An immersive East African tour and travel platform enabling international clients to discover, customize, and securely book luxury African safari packages and eco-tours.",
       liveUrl: "https://iforeveryoungtours.com/",
-      // Live dynamic screenshot generated directly from the real homepage
-      image: "https://image.thum.io/get/width/1200/crop/800/noanimate/https://iforeveryoungtours.com/",
+      // High quality vibrant African safari landscape image
+      image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=2000&auto=format&fit=crop",
       icon: <Plane className="text-emerald-400" size={24} />,
       highlights: [
         "Interactive itinerary builder with real-time booking inquiries",
@@ -76,8 +76,8 @@ const Projects = () => {
       category: "Media & Agency",
       description: "A modern digital agency platform designed for creative talent showcases, multimedia content distribution, and client management for Zetalent Media.",
       liveUrl: "https://zetalent-media.com/",
-      // Live dynamic screenshot generated directly from the real homepage
-      image: "https://image.thum.io/get/width/1200/crop/800/noanimate/https://zetalent-media.com/",
+      // High quality creative media studio & camera setup image
+      image: "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?q=80&w=2000&auto=format&fit=crop",
       icon: <Globe className="text-purple-400" size={24} />,
       highlights: [
         "Fast content delivery network for multimedia assets",
@@ -209,30 +209,26 @@ const Projects = () => {
           >
             <div className="grid lg:grid-cols-12 gap-0">
               
-              {/* Image & Live Web Snapshot Preview */}
+              {/* Clean High Quality Category Image */}
               <div className="lg:col-span-7 relative min-h-[320px] sm:min-h-[420px] bg-slate-950 overflow-hidden group">
                 <img 
                   src={currentProject.image} 
                   alt={currentProject.name}
-                  className="w-full h-full object-cover object-top transition-transform duration-1000 group-hover:scale-105"
-                  onError={(e) => {
-                    // Fallback in case screenshot service delay occurs
-                    (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop";
-                  }}
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent"></div>
                 
                 {/* Status Bar */}
                 <div className="absolute top-6 left-6 right-6 flex items-center justify-between">
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-950/80 border border-white/10 backdrop-blur-md">
                     <span className="size-2 rounded-full bg-emerald-400 animate-pulse"></span>
                     <span className="text-[10px] font-mono font-bold text-emerald-400 uppercase tracking-widest">
-                      LIVE PREVIEW SNAPSHOT
+                      PRODUCTION ONLINE
                     </span>
                   </div>
 
                   <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-950/80 border border-white/10 text-slate-300 text-[10px] font-mono">
-                    <ShieldCheck size={12} className="text-primary" /> Verified Production
+                    <ShieldCheck size={12} className="text-primary" /> Verified Enterprise
                   </div>
                 </div>
 
