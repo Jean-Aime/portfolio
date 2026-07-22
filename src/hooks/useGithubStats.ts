@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 
 export interface GithubStats {
   publicRepos: number;
+  totalRepos: number;
   followers: number;
   avatarUrl: string;
   loading: boolean;
@@ -12,7 +13,8 @@ export interface GithubStats {
 
 export const useGithubStats = (username: string): GithubStats => {
   const [stats, setStats] = useState<GithubStats>({
-    publicRepos: 0,
+    publicRepos: 18,
+    totalRepos: 54,
     followers: 0,
     avatarUrl: '',
     loading: true,
@@ -27,18 +29,22 @@ export const useGithubStats = (username: string): GithubStats => {
         const data = await response.json();
         
         setStats({
-          publicRepos: data.public_repos || 0,
+          publicRepos: data.public_repos || 18,
+          totalRepos: 54, // User's actual total count including private repos
           followers: data.followers || 0,
           avatarUrl: data.avatar_url || '',
           loading: false,
           error: null,
         });
       } catch (err) {
-        setStats(prev => ({
-          ...prev,
+        setStats({
+          publicRepos: 18,
+          totalRepos: 54,
+          followers: 0,
+          avatarUrl: '',
           loading: false,
           error: err instanceof Error ? err.message : 'Error fetching stats',
-        }));
+        });
       }
     };
 

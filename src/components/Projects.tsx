@@ -18,8 +18,6 @@ interface Project {
   highlights: string[];
   techStack: string[];
   metrics: { label: string; value: string }[];
-  accentColor: string;
-  borderGlow: string;
 }
 
 const Projects = () => {
@@ -32,9 +30,10 @@ const Projects = () => {
       name: "Jascome Platform",
       subtitle: "Corporate & Digital Asset Governance Platform",
       category: "Enterprise System",
-      description: "A multi-company enterprise platform engineered for Jascome, streamlining corporate operations, digital asset management, structured workflows, and cross-department collaboration.",
+      description: "An enterprise platform for Jascome providing modern business operation management, digital asset oversight, and scalable corporate workflows.",
       liveUrl: "https://www.jascome.com/",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
+      // Live dynamic screenshot generated directly from the real homepage
+      image: "https://image.thum.io/get/width/1200/crop/800/noanimate/https://www.jascome.com/",
       icon: <Layout className="text-cyan-400" size={24} />,
       highlights: [
         "Digital asset governance and multi-tenant operational security",
@@ -46,9 +45,7 @@ const Projects = () => {
         { label: "Uptime", value: "99.9%" },
         { label: "Type", value: "Enterprise SaaS" },
         { label: "Status", value: "Production" }
-      ],
-      accentColor: "from-cyan-500/20 via-sky-500/10 to-transparent",
-      borderGlow: "group-hover:border-cyan-500/50"
+      ]
     },
     {
       id: "foreveryoung",
@@ -57,7 +54,8 @@ const Projects = () => {
       category: "Tourism & Booking",
       description: "An immersive East African tour and travel platform enabling international clients to discover, customize, and securely book luxury African safari packages and eco-tours.",
       liveUrl: "https://iforeveryoungtours.com/",
-      image: "https://images.unsplash.com/photo-1516426122078-c23e76319801?q=80&w=2400&auto=format&fit=crop",
+      // Live dynamic screenshot generated directly from the real homepage
+      image: "https://image.thum.io/get/width/1200/crop/800/noanimate/https://iforeveryoungtours.com/",
       icon: <Plane className="text-emerald-400" size={24} />,
       highlights: [
         "Interactive itinerary builder with real-time booking inquiries",
@@ -69,9 +67,7 @@ const Projects = () => {
         { label: "Region", value: "East Africa" },
         { label: "UX Rating", value: "4.9 / 5" },
         { label: "Status", value: "Production" }
-      ],
-      accentColor: "from-emerald-500/20 via-teal-500/10 to-transparent",
-      borderGlow: "group-hover:border-emerald-500/50"
+      ]
     },
     {
       id: "zetalent",
@@ -80,7 +76,8 @@ const Projects = () => {
       category: "Media & Agency",
       description: "A modern digital agency platform designed for creative talent showcases, multimedia content distribution, and client management for Zetalent Media.",
       liveUrl: "https://zetalent-media.com/",
-      image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=2400&auto=format&fit=crop",
+      // Live dynamic screenshot generated directly from the real homepage
+      image: "https://image.thum.io/get/width/1200/crop/800/noanimate/https://zetalent-media.com/",
       icon: <Globe className="text-purple-400" size={24} />,
       highlights: [
         "Fast content delivery network for multimedia assets",
@@ -92,9 +89,7 @@ const Projects = () => {
         { label: "Industry", value: "Digital Media" },
         { label: "Speed", value: "Fast Load" },
         { label: "Status", value: "Production" }
-      ],
-      accentColor: "from-purple-500/20 via-indigo-500/10 to-transparent",
-      borderGlow: "group-hover:border-purple-500/50"
+      ]
     }
   ];
 
@@ -133,7 +128,7 @@ const Projects = () => {
             </p>
           </div>
 
-          {/* GitHub Live Stats Badge */}
+          {/* GitHub Live Stats Badge (18 Public / 54 Total Repos) */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -146,19 +141,20 @@ const Projects = () => {
             <div>
               <div className="flex items-center gap-2">
                 <span className="text-2xl font-black text-white font-mono">
-                  {githubStats.loading ? "..." : `${githubStats.publicRepos}+`}
+                  {githubStats.totalRepos}
                 </span>
-                <span className="inline-flex items-center gap-1 text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
-                  <CheckCircle size={10} /> Active
+                <span className="text-xs font-mono text-slate-400">Total Repos</span>
+                <span className="inline-flex items-center gap-1 text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20">
+                  <CheckCircle size={10} /> {githubStats.publicRepos} Public
                 </span>
               </div>
-              <p className="text-xs text-slate-400 font-mono">Total Projects on GitHub</p>
+              <p className="text-xs text-slate-400 font-mono mt-0.5">Jean-Aimé GitHub Overview</p>
             </div>
             <a 
               href="https://github.com/Jean-Aime" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="p-2 rounded-lg bg-white/5 text-slate-400 hover:text-white hover:bg-primary/20 transition-all ml-2"
+              className="p-2.5 rounded-xl bg-white/5 text-slate-400 hover:text-white hover:bg-primary/20 transition-all ml-2"
               title="Visit GitHub Profile"
             >
               <ArrowUpRight size={18} />
@@ -213,21 +209,25 @@ const Projects = () => {
           >
             <div className="grid lg:grid-cols-12 gap-0">
               
-              {/* Image & Live Preview Banner */}
-              <div className="lg:col-span-7 relative min-h-[320px] sm:min-h-[420px] overflow-hidden group">
+              {/* Image & Live Web Snapshot Preview */}
+              <div className="lg:col-span-7 relative min-h-[320px] sm:min-h-[420px] bg-slate-950 overflow-hidden group">
                 <img 
                   src={currentProject.image} 
                   alt={currentProject.name}
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                  className="w-full h-full object-cover object-top transition-transform duration-1000 group-hover:scale-105"
+                  onError={(e) => {
+                    // Fallback in case screenshot service delay occurs
+                    (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop";
+                  }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
                 
                 {/* Status Bar */}
                 <div className="absolute top-6 left-6 right-6 flex items-center justify-between">
                   <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-950/80 border border-white/10 backdrop-blur-md">
                     <span className="size-2 rounded-full bg-emerald-400 animate-pulse"></span>
                     <span className="text-[10px] font-mono font-bold text-emerald-400 uppercase tracking-widest">
-                      SYSTEM LIVE
+                      LIVE PREVIEW SNAPSHOT
                     </span>
                   </div>
 
@@ -237,7 +237,7 @@ const Projects = () => {
                 </div>
 
                 {/* Bottom Overlay Title on Image */}
-                <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-black/60 backdrop-blur-xl border border-white/10">
+                <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-black/70 backdrop-blur-xl border border-white/10">
                   <div className="flex items-center justify-between">
                     <div>
                       <h4 className="text-white font-bold text-base">{currentProject.name}</h4>
@@ -316,7 +316,7 @@ const Projects = () => {
           </motion.div>
         </AnimatePresence>
 
-        {/* All 3 Quick Links Bar */}
+        {/* All 3 Quick Direct Live Site Launchers */}
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4">
           {projects.map((p) => (
             <a
