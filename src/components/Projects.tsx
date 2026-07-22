@@ -2,16 +2,12 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Github, ArrowRight, Layout, Globe, Plane, Search, RefreshCw, Lock, Sparkles } from 'lucide-react';
+import { ExternalLink, Github, Layout, Globe, Plane, Search, Lock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useGithubProjects } from '@/hooks/useGithubProjects';
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const [showGithubRepos, setShowGithubRepos] = useState<boolean>(false);
-
-  const { projects: githubProjects, loading: githubLoading } = useGithubProjects("Jean-Aime");
 
   const featuredProjects = [
     {
@@ -74,7 +70,7 @@ const Projects = () => {
             className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-widest mb-4"
           >
             <Globe size={13} />
-            <span>Project Portfolio</span>
+            <span>Featured Deployments</span>
           </motion.div>
           <motion.h2 
             initial={{ opacity: 0, y: 15 }}
@@ -82,10 +78,10 @@ const Projects = () => {
             viewport={{ once: true }}
             className="text-4xl sm:text-5xl font-black mb-4 tracking-tight"
           >
-            Featured <span className="text-primary">Live Deployments</span>
+            Live <span className="text-primary">Production Platforms</span>
           </motion.h2>
           <p className="text-slate-400 max-w-2xl mx-auto text-base">
-            Architected, built, and launched production platforms serving real-world businesses across East Africa.
+            Enterprise and customer-facing digital platforms built, deployed, and managed for active businesses.
           </p>
         </div>
 
@@ -113,14 +109,14 @@ const Projects = () => {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Filter by keyword or stack..."
+              placeholder="Search platforms..."
               className="w-full pl-10 pr-4 py-2 rounded-xl bg-slate-900/80 border border-white/10 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-primary transition-colors"
             />
           </div>
         </div>
 
         {/* Featured Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, index) => (
               <motion.div
@@ -150,13 +146,13 @@ const Projects = () => {
                   </div>
                   
                   <div className="p-6">
-                    <div className="flex items-center justify-between mb-1">
+                    <div className="flex items-center justify-between mb-2">
                       <h3 className="text-xl font-bold group-hover:text-primary transition-colors text-white">
                         {project.name}
                       </h3>
                     </div>
                     
-                    <p className="text-slate-400 text-xs leading-relaxed mb-6 line-clamp-3">
+                    <p className="text-slate-400 text-xs leading-relaxed mb-6">
                       {project.description}
                     </p>
                     
@@ -171,15 +167,15 @@ const Projects = () => {
                 </div>
 
                 <div className="p-6 pt-0 flex items-center gap-3">
-                  <Button variant="outline" size="sm" className="flex-1 gap-2 rounded-xl border-white/10 hover:bg-white/5 text-xs" asChild>
+                  <Button variant="outline" size="sm" className="flex-1 gap-2 rounded-xl border-white/10 hover:bg-white/5 text-xs text-slate-300" asChild>
                     <a href={project.link} target="_blank" rel="noopener noreferrer">
                       <Github size={14} /> 
-                      {project.isPrivate ? "Repo (Private)" : "Repository"}
+                      {project.isPrivate ? "Repo (Private)" : "GitHub"}
                     </a>
                   </Button>
                   <Button size="sm" className="flex-1 gap-2 rounded-xl bg-primary hover:bg-primary/90 text-xs shadow-md shadow-primary/20" asChild>
                     <a href={project.live} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink size={14} /> Live Site
+                      <ExternalLink size={14} /> Visit Website
                     </a>
                   </Button>
                 </div>
@@ -187,82 +183,6 @@ const Projects = () => {
             ))}
           </AnimatePresence>
         </div>
-
-        {/* Live GitHub Toggle Section */}
-        <div className="bg-slate-900/60 border border-white/10 rounded-3xl p-6 sm:p-8 backdrop-blur-xl">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
-            <div>
-              <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                <Github size={20} className="text-primary" /> Live Repositories Feed
-              </h3>
-              <p className="text-xs text-slate-400">Direct integration with Jean-Aimé's public GitHub activity</p>
-            </div>
-            <Button
-              onClick={() => setShowGithubRepos(!showGithubRepos)}
-              variant="outline"
-              size="sm"
-              className="gap-2 rounded-xl border-primary/30 text-primary hover:bg-primary/10 text-xs"
-            >
-              <RefreshCw size={14} className={showGithubRepos ? "animate-spin" : ""} />
-              {showGithubRepos ? "Hide GitHub Feed" : "Fetch Latest Repos"}
-            </Button>
-          </div>
-
-          {showGithubRepos && (
-            <div className="mt-4 pt-4 border-t border-white/10">
-              {githubLoading ? (
-                <div className="text-center py-8 text-xs text-slate-400 font-mono">Fetching latest GitHub repositories...</div>
-              ) : (
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {githubProjects.map((repo) => (
-                    <a
-                      key={repo.id}
-                      href={repo.html_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-4 rounded-xl bg-black/40 border border-white/5 hover:border-primary/40 transition-colors block group"
-                    >
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="font-bold text-sm text-white group-hover:text-primary transition-colors capitalize truncate">
-                          {repo.name}
-                        </span>
-                        {repo.language && (
-                          <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-primary/10 text-primary">
-                            {repo.language}
-                          </span>
-                        )}
-                      </div>
-                      <p className="text-xs text-slate-400 line-clamp-2 mb-3">{repo.description}</p>
-                      <div className="text-[10px] text-slate-500 font-mono flex items-center gap-1">
-                        <span>★ {repo.stargazers_count} stars</span>
-                      </div>
-                    </a>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-
-        {/* GitHub External Button */}
-        <motion.div 
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex justify-center mt-12"
-        >
-          <Button 
-            asChild
-            variant="outline" 
-            size="lg" 
-            className="group h-12 px-8 rounded-2xl border-primary/30 hover:bg-primary/10 text-primary font-bold gap-3"
-          >
-            <a href="https://github.com/Jean-Aime" target="_blank" rel="noopener noreferrer">
-              View All Repositories on GitHub
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </a>
-          </Button>
-        </motion.div>
       </div>
     </section>
   );
