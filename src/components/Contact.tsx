@@ -164,7 +164,7 @@ const Contact = () => {
               </div>
               <div className="flex items-center justify-between text-slate-400">
                 <span>Avg. Response:</span>
-                <span className="text-sky-400">< 12 Hours</span>
+                <span className="text-sky-400">{"< 12 Hours"}</span>
               </div>
             </div>
           </div>
