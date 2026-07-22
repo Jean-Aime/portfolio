@@ -2,47 +2,47 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Terminal as TerminalIcon, Cpu, Lock, Zap } from 'lucide-react';
+import { Shield, Terminal as TerminalIcon, Cpu, Lock, Zap, Award } from 'lucide-react';
 import Terminal from './Terminal';
 
 const About = () => {
   const stats = [
     { label: "Experience", value: "6+ Years", icon: <TerminalIcon size={20} /> },
-    { label: "Projects", value: "25+", icon: <Cpu size={20} /> },
-    { label: "Security", value: "Expert", icon: <Shield size={20} /> },
+    { label: "Deployments", value: "25+", icon: <Cpu size={20} /> },
+    { label: "Security & SysOps", value: "Expert", icon: <Shield size={20} /> },
   ];
 
   return (
-    <section id="about" className="py-32 relative overflow-hidden">
+    <section id="about" className="py-28 relative overflow-hidden bg-slate-950/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-6"
           >
-            <div className="space-y-4">
-              <h2 className="text-sm font-bold text-primary tracking-[0.3em] uppercase">Professional Summary</h2>
-              <h3 className="text-4xl sm:text-5xl font-black text-white leading-tight">
-                Bridging <span className="text-primary">Technical Expertise</span> with Strategic Innovation.
+            <div className="space-y-3">
+              <span className="text-xs font-bold text-primary tracking-[0.3em] uppercase">Executive Profile</span>
+              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight">
+                Bridging <span className="text-primary">Technical Engineering</span> with Strategic Leadership.
               </h3>
             </div>
             
-            <p className="text-lg text-slate-400 leading-relaxed">
-              Web Developer and Technology Operations Professional with experience in designing and developing modern web applications, managing IT infrastructure, and supporting digital transformation initiatives. Skilled in full-stack web development, system administration, and cybersecurity, with the ability to build scalable digital platforms and solve complex technical challenges.
+            <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+              Web Developer and Technology Operations Professional with comprehensive experience in designing full-stack enterprise applications, administering IT network infrastructure, and steering high-impact digital transformation initiatives.
             </p>
 
-            <p className="text-lg text-slate-400 leading-relaxed">
-              Experienced in working within technology-driven environments where software development, operational systems, and innovation intersect. Adept at combining technical expertise with strategic thinking to support organizational growth, digital innovation, and efficient technology operations.
+            <p className="text-slate-400 text-sm sm:text-base leading-relaxed">
+              Adept at unifying software engineering with operational governance, multi-company digital asset management, and risk mitigations to build resilient, scalable ecosystems.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
               {stats.map((stat, i) => (
-                <div key={i} className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:border-primary/30 transition-colors group">
-                  <div className="text-primary mb-3 group-hover:scale-110 transition-transform">{stat.icon}</div>
-                  <div className="text-2xl font-bold text-white">{stat.value}</div>
-                  <div className="text-xs text-slate-500 uppercase tracking-wider">{stat.label}</div>
+                <div key={i} className="p-5 rounded-2xl bg-slate-900/80 border border-white/10 backdrop-blur-sm hover:border-primary/40 transition-all group">
+                  <div className="text-primary mb-2 group-hover:scale-110 transition-transform">{stat.icon}</div>
+                  <div className="text-2xl font-black text-white">{stat.value}</div>
+                  <div className="text-[10px] text-slate-400 uppercase tracking-wider font-mono mt-1">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -54,19 +54,19 @@ const About = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="absolute -inset-4 bg-primary/10 blur-3xl rounded-full opacity-50"></div>
+            <div className="absolute -inset-4 bg-primary/10 blur-3xl rounded-full opacity-60"></div>
             <Terminal />
             
-            <div className="mt-8 grid grid-cols-2 gap-4">
-              <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/30 transition-all">
-                <Lock className="text-primary mb-4" size={32} />
-                <h4 className="text-lg font-bold text-white mb-2">Tech Ops</h4>
-                <p className="text-xs text-slate-400">Managing digital assets and securing multi-company ecosystems.</p>
+            <div className="mt-6 grid grid-cols-2 gap-4">
+              <div className="p-5 rounded-2xl bg-slate-900/80 border border-white/10 hover:border-primary/40 transition-all">
+                <Lock className="text-primary mb-3" size={28} />
+                <h4 className="text-base font-bold text-white mb-1">Tech Operations</h4>
+                <p className="text-xs text-slate-400 leading-relaxed">Overseeing corporate systems, cybersecurity, and asset governance.</p>
               </div>
-              <div className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/30 transition-all">
-                <Zap className="text-primary mb-4" size={32} />
-                <h4 className="text-lg font-bold text-white mb-2">Innovation</h4>
-                <p className="text-xs text-slate-400">Implementing organizational structures for scalability and growth.</p>
+              <div className="p-5 rounded-2xl bg-slate-900/80 border border-white/10 hover:border-primary/40 transition-all">
+                <Zap className="text-primary mb-3" size={28} />
+                <h4 className="text-base font-bold text-white mb-1">Digital Innovation</h4>
+                <p className="text-xs text-slate-400 leading-relaxed">Designing organizational structures built for scale, agility, and growth.</p>
               </div>
             </div>
           </motion.div>

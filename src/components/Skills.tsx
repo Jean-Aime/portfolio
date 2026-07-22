@@ -1,67 +1,143 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Code, Lock, Briefcase } from 'lucide-react';
+import { Code, Lock, Briefcase, CheckCircle2, Cpu, Sparkles } from 'lucide-react';
 
 const Skills = () => {
+  const [selectedCategory, setSelectedCategory] = useState<number>(0);
+
   const categories = [
     { 
-      title: "Technical Skills", 
-      icon: <Code size={24} />, 
-      skills: ["React.js", "TypeScript", "Tailwind CSS", "Node.js", "Express.js", "PHP", "Web Application Development", "Responsive Web Design"],
+      title: "Technical & Full Stack", 
+      icon: <Code size={22} />, 
+      description: "Building scalable web and mobile software solutions.",
+      skills: [
+        { name: "React.js & Next.js", level: 92 },
+        { name: "TypeScript / JavaScript", level: 90 },
+        { name: "Tailwind CSS & UI Systems", level: 95 },
+        { name: "Node.js & Express API", level: 88 },
+        { name: "PHP & Relational DBs", level: 85 },
+        { name: "Web Application Security", level: 90 },
+      ],
       color: "from-blue-500/20 to-cyan-500/20"
     },
     { 
-      title: "Infrastructure & Security", 
-      icon: <Lock size={24} />, 
-      skills: ["Cybersecurity", "Network Security", "System Admin", "IT Infrastructure", "Network Automation", "Cloud Systems", "Incident Response", "Risk Management"],
+      title: "Infrastructure & Cybersecurity", 
+      icon: <Lock size={22} />, 
+      description: "Securing corporate networks and maintaining core systems.",
+      skills: [
+        { name: "Network Infrastructure & Firewalls", level: 92 },
+        { name: "System Administration (Linux/Win)", level: 90 },
+        { name: "Cybersecurity & Incident Protocol", level: 88 },
+        { name: "Backup Systems & Disaster Recovery", level: 92 },
+        { name: "Cloud Management & Virtualization", level: 84 },
+        { name: "Access Controls & Risk Oversight", level: 89 },
+      ],
       color: "from-purple-500/20 to-pink-500/20"
     },
     { 
-      title: "Business & Leadership", 
-      icon: <Briefcase size={24} />, 
-      skills: ["Startup Company Structuring", "Corporate Governance Design", "Enterprise Organizational Architecture", "Operational Division Management", "Strategic Partnerships Development", "Business Leveraging", "Ecosystem Strategy", "Innovation Management"],
+      title: "Executive & Digital Innovation", 
+      icon: <Briefcase size={22} />, 
+      description: "Leading digital transformation and technology governance.",
+      skills: [
+        { name: "Startup Structuring & Architecture", level: 95 },
+        { name: "Digital Asset Governance", level: 92 },
+        { name: "Operations & Division Scaling", level: 90 },
+        { name: "Strategic Tech Partnerships", level: 88 },
+        { name: "Corporate Governance Strategy", level: 90 },
+        { name: "Innovation Ecosystem Design", level: 94 },
+      ],
       color: "from-emerald-500/20 to-teal-500/20"
     }
   ];
 
   return (
-    <section id="skills" className="py-32 relative">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-5xl font-black mb-4">Core Competencies</h2>
-          <p className="text-slate-400 max-w-2xl mx-auto">A comprehensive overview of my technical expertise and strategic leadership capabilities as outlined in my professional profile.</p>
+    <section id="skills" className="py-28 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-widest mb-4"
+          >
+            <Cpu size={13} />
+            <span>Core Competencies</span>
+          </motion.div>
+          <motion.h2 
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl sm:text-5xl font-black mb-4 tracking-tight"
+          >
+            Technical & Leadership <span className="text-primary">Mastery</span>
+          </motion.h2>
+          <p className="text-slate-400 max-w-2xl mx-auto text-base">
+            Combining deep hands-on technical execution with high-level corporate and operational leadership.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Category Tabs */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
           {categories.map((cat, i) => (
-            <motion.div 
-              key={i} 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="relative p-8 rounded-3xl bg-card border border-border/50 hover:border-primary/40 transition-all duration-500 group overflow-hidden"
+            <button
+              key={i}
+              onClick={() => setSelectedCategory(i)}
+              className={`p-6 rounded-2xl border text-left transition-all duration-300 flex items-start gap-4 ${
+                selectedCategory === i
+                  ? "bg-slate-900 border-primary shadow-xl shadow-primary/10"
+                  : "bg-slate-900/40 border-white/10 hover:border-white/20 text-slate-400"
+              }`}
             >
-              <div className={`absolute inset-0 bg-gradient-to-br ${cat.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-              
-              <div className="relative z-10">
-                <div className="size-14 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-                  {cat.icon}
-                </div>
-                <h3 className="text-xl font-bold text-white mb-6">{cat.title}</h3>
-                <div className="flex flex-wrap gap-2">
-                  {cat.skills.map((s, k) => (
-                    <span key={k} className="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-slate-400 group-hover:text-white group-hover:border-primary/30 transition-colors">
-                      {s}
-                    </span>
-                  ))}
-                </div>
+              <div className={`p-3 rounded-xl ${selectedCategory === i ? "bg-primary text-white" : "bg-white/5 text-primary"}`}>
+                {cat.icon}
               </div>
-            </motion.div>
+              <div>
+                <h3 className="font-bold text-base text-white mb-1">{cat.title}</h3>
+                <p className="text-xs text-slate-400 leading-relaxed">{cat.description}</p>
+              </div>
+            </button>
           ))}
         </div>
+
+        {/* Active Category Skills Progress Grid */}
+        <motion.div 
+          key={selectedCategory}
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="bg-slate-900/80 border border-white/10 rounded-3xl p-6 sm:p-10 backdrop-blur-xl"
+        >
+          <div className="flex items-center gap-3 mb-8">
+            <Sparkles size={18} className="text-primary" />
+            <h3 className="text-xl font-bold text-white">
+              {categories[selectedCategory].title} Proficiency Matrix
+            </h3>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-x-12 gap-y-6">
+            {categories[selectedCategory].skills.map((skill, idx) => (
+              <div key={idx} className="space-y-2">
+                <div className="flex justify-between items-center text-xs">
+                  <span className="font-bold text-slate-200 flex items-center gap-2">
+                    <CheckCircle2 size={14} className="text-primary" />
+                    {skill.name}
+                  </span>
+                  <span className="font-mono text-primary font-bold">{skill.level}%</span>
+                </div>
+                <div className="h-2 w-full bg-slate-800 rounded-full overflow-hidden p-0.5 border border-white/5">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: `${skill.level}%` }}
+                    transition={{ duration: 1, delay: idx * 0.08 }}
+                    className="h-full bg-gradient-to-r from-primary to-cyan-400 rounded-full"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
