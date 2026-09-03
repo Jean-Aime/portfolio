@@ -86,8 +86,8 @@ const Footer = () => {
             <p className="text-slate-500 text-[10px] font-mono uppercase tracking-widest">
               &copy; {currentYear} JEAN AIMÉ BARIHUJE. ALL RIGHTS RESERVED.
             </p>
-            <p className="text-slate-600 text-[8px] font-mono uppercase tracking-widest">
-              v1.0.5-latest
+            <p className="text-primary font-mono text-[9px] uppercase tracking-widest">
+              BUILD: v1.0.6-FORCE-UPDATE
             </p>
           </div>
           <p className="text-slate-500 text-[10px] font-mono uppercase tracking-widest">
